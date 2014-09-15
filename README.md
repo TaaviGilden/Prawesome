@@ -8,5 +8,6 @@ Licence can be found in LICENSE.md
 * Karl Metsand
 * Taavi Gilden
 * Innar Hallik
+
 #Documentation
 Projcet documentation can we found in our Wiki

@@ -1,8 +1,8 @@
 Prawesome
 =========
-Prawsome is school project in subject MTAT.03.138 Software Project.
+Prawsome is a school project in the subject MTAT.03.138 Software Project.
 #Licence
-Licence can be found in LICENSE.md
+This software is licensed under the ---. Please read LICENSE information [here](https://github.com/TaaviGilden/Prawesome/blob/master/LICENSE.md).
 #Team members
 * Jaan Susi
 * Karl Metsand
@@ -10,4 +10,4 @@ Licence can be found in LICENSE.md
 * Innar Hallik
 
 #Documentation
-Projcet documentation can we found in our Wiki
+Project documentation can be found in our [Wiki](https://github.com/TaaviGilden/Prawesome/wiki)

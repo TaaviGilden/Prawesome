@@ -38,18 +38,17 @@ app.initEvents = function() {
 
     // Initialize app event handlers.
     // See app.js for a simple example.
-    // TODO: configure to work with both touch and click events (mouse + touch)
-    // see http://msopentech.com/blog/2013/09/16/add-pinch-pointer-events-apache-cordova-phonegap-app/
 
-    var el, evt ;
-
-    if( navigator.msPointerEnabled )                            // if on a Windows 8 machine
-        evt = "click" ;                                         // let touch become a click event
-    else                                                        // else, assume touch events available
-        evt = "touchend" ;                                      // not the optimum solution...
-
-    el = document.getElementById("id_btnHello") ;
-    el.addEventListener(evt, myEventHandler, false) ;
+// ...overly simple example...
+//    var el, evt ;
+//
+//    if( navigator.msPointerEnabled )                            // if on a Windows 8 machine
+//        evt = "click" ;                                         // let touch become a click event
+//    else                                                        // else, assume touch events available
+//        evt = "touchend" ;                                      // not the optimum solution...
+//
+//    el = document.getElementById("id_btnHello") ;
+//    el.addEventListener(evt, myEventHandler, false) ;
 
     // after init is all done is a good time to remove our splash screen
 
@@ -107,10 +106,6 @@ app.hideSplashScreen = function() {
     "use strict" ;
     var fName = "app.hideSplashScreen():" ;
     console.log(fName, "entry") ;
-
-    // see https://github.com/01org/appframework/blob/master/documentation/detail/%24.ui.launch.md
-    // Do following if you disabled App Framework autolaunch (in index.html, for example)
-    // $.ui.launch() ;
 
     if( navigator.splashscreen ) {                              // Cordova API detected
         navigator.splashscreen.hide() ;

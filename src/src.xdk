@@ -2,13 +2,14 @@
   "project": {
     "projectSettingsVersion": "1.1",
     "creationData": {
-      "type": "Blank Project",
+      "type": "App Designer",
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
-      "src": "blankproject",
-      "projectGuid": "710bf4d5-bc00-48e1-a19d-08631e92cd5e",
-      "lastModifiedDate": 1411042344783,
-      "creationDate": 1411042344603
+      "src": "appDesigner",
+      "projectGuid": "3c1111f3-9ae1-44ed-9d34-f78cb84ea879",
+      "lastModifiedDate": 1411043784719,
+      "creationDate": 1411043784636
     },
+    "XDK-app-designer": "true",
     "sourceDirectory": "www",
     "startFile": "index.html",
     "projectFiles": {},
@@ -58,7 +59,7 @@
         },
         "isActive_": true,
         "appName_": "src",
-        "appID_": "xdk.intel.blank.project",
+        "appID_": "xdk.intel.ad.project",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -68,7 +69,7 @@
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
         "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
+        "appDescription_": "",
         "appAuthor_": "",
         "appVersionCode_": "1"
       },
@@ -82,7 +83,7 @@
         },
         "isActive_": true,
         "appName_": "src",
-        "appID_": "xdk.intel.blank.project",
+        "appID_": "xdk.intel.ad.project",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -92,7 +93,7 @@
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
         "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
+        "appDescription_": "",
         "appAuthor_": "",
         "appVersionCode_": "1"
       },
@@ -106,7 +107,7 @@
         },
         "isActive_": true,
         "appName_": "src",
-        "appID_": "xdk.intel.blank.project",
+        "appID_": "xdk.intel.ad.project",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -116,7 +117,7 @@
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
         "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
+        "appDescription_": ""
       },
       "Windows8": {
         "platform_": "windows8",
@@ -128,7 +129,7 @@
         },
         "isActive_": true,
         "appName_": "src",
-        "appID_": "xdk.intel.blank.project",
+        "appID_": "xdk.intel.ad.project",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -138,7 +139,7 @@
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
         "appVersion_": "0.0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
+        "appDescription_": ""
       },
       "WindowsPhone8": {
         "platform_": "wp8",
@@ -147,7 +148,7 @@
         "preferences_": {},
         "isActive_": true,
         "appName_": "src",
-        "appID_": "not.yet.specified",
+        "appID_": "xdk.intel.ad.project",
         "appAccess_": "*",
         "icons_": [],
         "splashes_": [],
@@ -156,7 +157,7 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.3",
         "crosswalkVersion_": "stable",
-        "appVersion_": "1.0.0.0"
+        "appVersion_": "0.0.0.1"
       }
     }
   }

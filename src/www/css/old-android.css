@@ -12,16 +12,10 @@ body {
     -webkit-tap-highlight-color: rgba(0,0,0,0) ;
     -webkit-tap-highlight-color: transparent ;      /* For some Androids */
 
-    /* margin: 0.5rem ; */
     background: white ;
     color: black ;
 }
-
 input, textarea  {
     /* allow copy-paste */
     -webkit-user-select: text ; -moz-user-select: text ; -ms-user-select: text ; user-select: text ;
-}
-
-.align-center {
-    text-align: center ;
 }

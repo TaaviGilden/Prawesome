@@ -42,9 +42,7 @@ public class MainActivity extends FragmentActivity {
 		
 		values = datasource.getAllActivities();
 		
-		for(int i =0;i<values.size();i++){
-	    	Log.d("calues1",values.get(i).toString());
-	    }
+		
 		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 	}
@@ -58,7 +56,7 @@ public class MainActivity extends FragmentActivity {
         @Override
         public Fragment getItem(int pos) {
             switch(pos) {
-
+         
             case 0: return FirstFragment.newInstance(values.get(0).toString());
             case 1: return SecondFragment.newInstance(values.get(1).toString());
             case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
@@ -77,7 +75,9 @@ public class MainActivity extends FragmentActivity {
 	
 	@Override
 	  protected void onResume() {
-		
+		for(int i =0;i<values.size();i++){
+	    	Log.d("calues1",values.get(i).toString());
+	    }
 	    datasource.open();
 
 	    

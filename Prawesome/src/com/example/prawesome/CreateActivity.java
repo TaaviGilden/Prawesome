@@ -1,14 +1,14 @@
 package com.example.prawesome;
 
-import com.example.database.Activity;
-import com.example.database.ActivityDataSource;
-
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.database.Activity;
+import com.example.database.ActivityDataSource;
 
 public class CreateActivity extends ActionBarActivity {
 	private ActivityDataSource datasource;

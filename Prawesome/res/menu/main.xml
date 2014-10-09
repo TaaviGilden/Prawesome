@@ -13,5 +13,10 @@
         android:orderInCategory="90"
         android:title="@string/add_activity"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="110"
+        android:title="@string/about"
+        app:showAsAction="never"/>
 
 </menu>

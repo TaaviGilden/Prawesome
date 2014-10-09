@@ -10,38 +10,102 @@
     tools:context="com.example.prawesome.CreateActivity" >
 
 <TextView
-        android:gravity="center"
-        android:background="@drawable/rounded_corner"
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/create_activity"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="22sp" />
-
-<Button
-    android:id="@+id/button1"
+    android:id="@+id/textView1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
     android:layout_alignParentRight="true"
-    android:layout_below="@+id/textView1"
-    android:layout_marginTop="75dp"
-    android:onClick="submitActivity"
-    android:padding="10dp"
-    android:text="Submit" />
+    android:layout_alignParentTop="true"
+    android:gravity="center"
+    android:text="@string/create_activity"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:textSize="22sp" />
 
 <EditText
     android:id="@+id/editText1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignBottom="@+id/button1"
-    android:layout_alignTop="@+id/button1"
+    android:layout_below="@+id/textView1"
+    android:layout_margin="10dp"
+    android:layout_marginTop="14dp"
     android:layout_toLeftOf="@+id/button1"
     android:background="@drawable/rounded_corner"
     android:ems="10"
-    android:hint="Insert activity here..." />
+    android:hint="Title" />
+
+<Button
+    android:id="@+id/button1"
+    android:layout_width="100dp"
+    android:layout_height="30dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:background="@drawable/rounded_corner"
+    android:onClick="submitActivity"
+    android:text="Submit" />
+
+<EditText
+    android:id="@+id/editText2"
+    android:layout_width="wrap_content"
+    android:layout_height="100dp"
+    android:layout_alignLeft="@+id/editText1"
+    android:layout_alignRight="@+id/button2"
+    android:layout_below="@+id/editText1"
+    android:background="@drawable/rounded_corner"
+    android:ems="10"
+    android:hint="Description"
+    android:inputType="textMultiLine" >
+
+    <requestFocus />
+</EditText>
+
+<EditText
+    android:id="@+id/editText3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/editText2"
+    android:layout_margin="10dp"
+    android:background="@drawable/rounded_corner"
+    android:ems="10"
+    android:hint="Location" />
+
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/button2"
+    android:layout_alignTop="@+id/editText3"
+    android:src="@android:drawable/ic_menu_search" />
+
+<EditText
+    android:id="@+id/editText5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/editText4"
+    android:layout_alignRight="@+id/editText4"
+    android:layout_below="@+id/editText4"
+    android:background="@drawable/rounded_corner"
+    android:ems="10"
+    android:hint="Cost" />
+
+<EditText
+    android:id="@+id/editText4"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/textView1"
+    android:layout_below="@+id/editText3"
+    android:layout_margin="10dp"
+    android:background="@drawable/rounded_corner"
+    android:ems="10"
+    android:hint="Timeframe" />
+
+<Button
+    android:id="@+id/button2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/editText1"
+    android:layout_alignRight="@+id/textView1"
+    android:layout_alignTop="@+id/editText1"
+    android:background="@drawable/rounded_corner"
+    android:text="Image..." />
 
 </RelativeLayout>

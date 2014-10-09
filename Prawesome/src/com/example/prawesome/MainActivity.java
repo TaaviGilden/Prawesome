@@ -21,7 +21,6 @@ import com.example.database.ActivityDataSource;
 public class MainActivity extends FragmentActivity {
 	private ActivityDataSource datasource;
 	List<Activity> values;
-	Activity activity;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,21 +29,16 @@ public class MainActivity extends FragmentActivity {
 		
 		datasource = new ActivityDataSource(this);
 		datasource.open();
+		
 		String[] activities = new String[] {"do_that","do_this","do_whatever"};
 		for(int i = 0;i<3;i++){
-			//Log.d("foract", activities[i]);
-			activity = datasource.createActivity(activities[i]);
-//			if(!datasource.dbContains(activities[i])){
-//
-//			}
-
+			if(!(datasource.verification(activities[i]))){
+				datasource.createActivity(activities[i]);
+			}
 		}
 		
-		values = datasource.getAllActivities();
-		
-		for(int i =0;i<values.size();i++){
-	    	Log.d("calues1",values.get(i).toString());
-	    }
+		values = datasource.getAllActivities();	
+		Log.d("size", Integer.toString(values.size()));
 		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 	}
@@ -57,30 +51,42 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int pos) {
-            switch(pos) {
 
-            case 0: return FirstFragment.newInstance(values.get(0).toString());
-            case 1: return SecondFragment.newInstance(values.get(1).toString());
-            case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
-            case 3: return ThirdFragment.newInstance("ThirdFragment, Instance 2");
-            case 4: return ThirdFragment.newInstance("ThirdFragment, Instance 3");
-            case 5: return FirstFragment.newInstance(values.get(2).toString());
-            default: return ThirdFragment.newInstance("ThirdFragment, Default");
+            while(pos<=values.size()){
+            	return FirstFragment.newInstance(values.get(pos).toString());
             }
+//        	switch(pos) {
+//         
+////            case 0: return FirstFragment.newInstance(values.get(0).toString());
+////            case 1: return SecondFragment.newInstance(values.get(1).toString());
+////            case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
+////            case 3: return ThirdFragment.newInstance("ThirdFragment, Instance 2");
+////            case 4: return ThirdFragment.newInstance("ThirdFragment, Instance 3");
+////            case 5: return FirstFragment.newInstance(values.get(2).toString());
+//            case 0:
+//            	while(i<=values.size()){
+//            		i++;
+//            		return ThirdFragment.newInstance(values.get(i).toString());	
+//            	}
+//            	
+//            default: return ThirdFragment.newInstance("ThirdFragment, Default");
+//            
+//            }
+			return null;
         }
 
         @Override
         public int getCount() {
-            return 6;
+            return values.size();
         }       
     }
 	
 	@Override
 	  protected void onResume() {
-		
+		for(int i =0;i<values.size();i++){
+	    	Log.d("calues1",values.get(i).toString());
+	    }
 	    datasource.open();
-
-	    
 	    super.onResume();
 	  }
 

@@ -50,15 +50,12 @@ public class ActivityDataSource {
 	        + " = " + id, null);
 	  }
 	  
-	  public boolean dbContains(String activity){
-		  Cursor cursor = database.rawQuery("SELECT count(ActivityDBHelper.COLUMN_ACTIVITY) FROM ActivityDBHelper.TABLE_ACTIVITIES", allColumns);
-		  	if (cursor.getInt(0) > 0){
-		  		return true;
-		  		}
-		  	else{
-		  		return false;
-		  	}
-	  }
+	  public boolean verification(String activity) {
+		    Cursor c = database.rawQuery("SELECT 1 FROM "+ActivityDBHelper.TABLE_ACTIVITIES+" WHERE "+ActivityDBHelper.COLUMN_ACTIVITY+"=?", new String[] {activity});
+		    boolean exists = c.moveToFirst();
+		    c.close();
+		    return exists;
+		}
 	  
 	  public void deleteAllActivities(){
 		  database.delete(ActivityDBHelper.TABLE_ACTIVITIES, null, null);

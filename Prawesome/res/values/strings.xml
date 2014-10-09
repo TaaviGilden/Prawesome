@@ -6,9 +6,11 @@
     <string name="add_activity">Add a new activity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_create">CreateActivity</string>
-    <string name="create_activity">Creating an activity here!</string>
+    <string name="create_activity">Create a new activity!</string>
     <string name="title_activity_first_fragment">FirstFragment</string>
     <string name="title_activity_second_fragment">SecondFragment</string>
     <string name="title_activity_third_fragment">ThirdFragment</string>
+    <string name="title_activity_splash">SplashActivity</string>
+
 
 </resources>

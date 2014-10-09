@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#33A333"
+    android:background="@android:color/holo_orange_dark"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -20,30 +20,28 @@
         android:layout_alignParentTop="true"
         android:text="@string/create_activity"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30sp" />
+        android:textSize="22sp" />
 
 <Button
     android:id="@+id/button1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginBottom="158dp"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/textView1"
+    android:layout_marginTop="75dp"
     android:onClick="submitActivity"
+    android:padding="10dp"
     android:text="Submit" />
 
 <EditText
     android:id="@+id/editText1"
-    android:background="@drawable/rounded_corner"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_above="@+id/button1"
-    android:layout_centerHorizontal="true"
-    android:layout_marginBottom="24dp"
+    android:layout_alignBottom="@+id/button1"
+    android:layout_alignTop="@+id/button1"
+    android:layout_toLeftOf="@+id/button1"
+    android:background="@drawable/rounded_corner"
     android:ems="10"
-    android:hint="Insert activity here..." >
-
-    <requestFocus />
-</EditText>
+    android:hint="Insert activity here..." />
 
 </RelativeLayout>

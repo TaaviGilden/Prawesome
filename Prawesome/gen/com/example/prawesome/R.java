@@ -457,6 +457,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int logo=0x7f01002d;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int metaButtonBarButtonStyle=0x7f01006f;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int metaButtonBarStyle=0x7f01006e;
         /**  The type of navigation to use. 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -858,10 +866,11 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f060002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f070003;
+        public static final int abc_search_url_text_holo=0x7f070004;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
+        public static final int black_overlay=0x7f070003;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1078,8 +1087,9 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
-        public static final int rounded_corner=0x7f020058;
-        public static final int rounded_corners2=0x7f020059;
+        public static final int logo=0x7f020058;
+        public static final int rounded_corner=0x7f020059;
+        public static final int rounded_corners2=0x7f02005a;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1093,9 +1103,9 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050043;
+        public static final int action_settings=0x7f050044;
         public static final int activity_chooser_view_content=0x7f050025;
-        public static final int add_activity=0x7f050044;
+        public static final int add_activity=0x7f050045;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int button1=0x7f05003d;
@@ -1115,6 +1125,7 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
+        public static final int imageView1=0x7f050042;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
@@ -1146,7 +1157,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f050020;
         public static final int tvFragFirst=0x7f05003f;
         public static final int tvFragSecond=0x7f050041;
-        public static final int tvFragThird=0x7f050042;
+        public static final int tvFragThird=0x7f050043;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
         public static final int viewPager=0x7f050040;
@@ -1206,15 +1217,17 @@ containing a value of this type.
         public static final int activity_first_fragment=0x7f030019;
         public static final int activity_main=0x7f03001a;
         public static final int activity_second_fragment=0x7f03001b;
-        public static final int activity_third_fragment=0x7f03001c;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
+        public static final int activity_splash=0x7f03001c;
+        public static final int activity_third_fragment=0x7f03001d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
     }
     public static final class menu {
         public static final int create=0x7f0c0000;
         public static final int first=0x7f0c0001;
         public static final int main=0x7f0c0002;
         public static final int second=0x7f0c0003;
-        public static final int third=0x7f0c0004;
+        public static final int splash=0x7f0c0004;
+        public static final int third=0x7f0c0005;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1265,21 +1278,25 @@ containing a value of this type.
         public static final int title_activity_create=0x7f0a0011;
         public static final int title_activity_first_fragment=0x7f0a0013;
         public static final int title_activity_second_fragment=0x7f0a0014;
+        public static final int title_activity_splash=0x7f0a0016;
         public static final int title_activity_third_fragment=0x7f0a0015;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
+
     
  API 11 theme customizations can go here. 
 
@@ -1294,6 +1311,10 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0b008c;
+        public static final int ButtonBar=0x7f0b008e;
+        public static final int ButtonBarButton=0x7f0b008f;
+        public static final int FullscreenActionBarStyle=0x7f0b0090;
+        public static final int FullscreenTheme=0x7f0b008d;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;
@@ -2185,6 +2206,46 @@ containing a value of this type.
           @attr name com.example.prawesome:initialActivityCount
         */
         public static final int ActivityChooserView_initialActivityCount = 0;
+        /** 
+         Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels.
+    
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarButtonStyle com.example.prawesome:metaButtonBarButtonStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarStyle com.example.prawesome:metaButtonBarStyle}</code></td><td></td></tr>
+           </table>
+           @see #ButtonBarContainerTheme_metaButtonBarButtonStyle
+           @see #ButtonBarContainerTheme_metaButtonBarStyle
+         */
+        public static final int[] ButtonBarContainerTheme = {
+            0x7f01006e, 0x7f01006f
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.example.prawesome.R.attr#metaButtonBarButtonStyle}
+          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.example.prawesome:metaButtonBarButtonStyle
+        */
+        public static final int ButtonBarContainerTheme_metaButtonBarButtonStyle = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.example.prawesome.R.attr#metaButtonBarStyle}
+          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.example.prawesome:metaButtonBarStyle
+        */
+        public static final int ButtonBarContainerTheme_metaButtonBarStyle = 0;
         /** Attributes that can be used with a CompatTextView.
            <p>Includes the following attributes:</p>
            <table>

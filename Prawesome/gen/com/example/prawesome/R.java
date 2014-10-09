@@ -1092,6 +1092,7 @@ containing a value of this type.
         public static final int rounded_corners2=0x7f02005a;
     }
     public static final class id {
+        public static final int action_about=0x7f05004b;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1103,19 +1104,24 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050044;
+        public static final int action_settings=0x7f050049;
         public static final int activity_chooser_view_content=0x7f050025;
-        public static final int add_activity=0x7f050045;
+        public static final int add_activity=0x7f05004a;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int button1=0x7f05003d;
+        public static final int button1=0x7f05003f;
+        public static final int button2=0x7f05003e;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
         public static final int dropdown=0x7f05000f;
-        public static final int editText1=0x7f05003e;
+        public static final int editText1=0x7f05003d;
+        public static final int editText2=0x7f050040;
+        public static final int editText3=0x7f050041;
+        public static final int editText4=0x7f050043;
+        public static final int editText5=0x7f050044;
         public static final int edit_query=0x7f050030;
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;
@@ -1155,12 +1161,12 @@ containing a value of this type.
         public static final int textView1=0x7f05003c;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
-        public static final int tvFragFirst=0x7f05003f;
-        public static final int tvFragSecond=0x7f050041;
-        public static final int tvFragThird=0x7f050043;
+        public static final int tvFragFirst=0x7f050045;
+        public static final int tvFragSecond=0x7f050047;
+        public static final int tvFragThird=0x7f050048;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
-        public static final int viewPager=0x7f050040;
+        public static final int viewPager=0x7f050046;
         public static final int withText=0x7f05000c;
     }
     public static final class integer {
@@ -1270,6 +1276,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
+        public static final int about=0x7f0a0017;
         public static final int action_settings=0x7f0a0010;
         public static final int add_activity=0x7f0a000f;
         public static final int app_name=0x7f0a000d;

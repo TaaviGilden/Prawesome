@@ -17,10 +17,11 @@ public class SplashActivity extends Activity {
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
 			public void run() {
+				finish();
 				Intent openMainActivity = new Intent(SplashActivity.this,
 						MainActivity.class);
 				startActivity(openMainActivity);
-				finish();
+				
 
 			}
 		}, 2000);

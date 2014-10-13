@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_dark" >
+    android:background="@color/backgroundGrey" >
 
     <TextView
         android:id="@+id/tvFragFirst"
@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="114dp"
         android:text="TextView"
+        android:textColor="@color/logoBlue"
         android:textSize="26dp" />
 
 </RelativeLayout>

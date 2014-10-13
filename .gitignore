@@ -1,3 +1,5 @@
 *.class
 
 project.properties
+.classpath
+jarlist.cache

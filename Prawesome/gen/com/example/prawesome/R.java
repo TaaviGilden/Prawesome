@@ -1109,8 +1109,8 @@ containing a value of this type.
         public static final int add_activity=0x7f05004a;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int button1=0x7f05003f;
-        public static final int button2=0x7f05003e;
+        public static final int button1=0x7f05003e;
+        public static final int button2=0x7f050040;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
@@ -1118,10 +1118,10 @@ containing a value of this type.
         public static final int disableHome=0x7f050008;
         public static final int dropdown=0x7f05000f;
         public static final int editText1=0x7f05003d;
-        public static final int editText2=0x7f050040;
+        public static final int editText2=0x7f05003f;
         public static final int editText3=0x7f050041;
-        public static final int editText4=0x7f050043;
-        public static final int editText5=0x7f050044;
+        public static final int editText4=0x7f050044;
+        public static final int editText5=0x7f050043;
         public static final int edit_query=0x7f050030;
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;

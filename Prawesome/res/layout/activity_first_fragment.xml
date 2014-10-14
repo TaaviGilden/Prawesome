@@ -11,6 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="114dp"
+        android:onClick="detailedView"
         android:text="TextView"
         android:textColor="@color/logoBlue"
         android:textSize="26dp" />

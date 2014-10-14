@@ -25,8 +25,17 @@ public class CreateActivity extends ActionBarActivity {
 	public void submitActivity(View view){
 		datasource = new ActivityDataSource(this);
 		datasource.open();
-		EditText ed1 = (EditText) findViewById(R.id.editText1);
-		String activityName = ed1.getText().toString();
+		EditText name = (EditText) findViewById(R.id.editText1);
+		EditText desc = (EditText) findViewById(R.id.Description);
+		EditText loc = (EditText) findViewById(R.id.Location);
+		EditText cost = (EditText) findViewById(R.id.Cost);
+		EditText time = (EditText) findViewById(R.id.Timeframe);
+		String activityName = name.getText().toString();
+		String activityDesc = desc.getText().toString();
+		String activityLoc = loc.getText().toString();
+		int activityCost = Integer.parseInt(cost.getText().toString());
+		int activityTime = Integer.parseInt(time.getText().toString());
+		
 		if(activityName == ""){
 			//TO DO -- got to figure out what's inside EditText when it's empty.
 			Context context = getApplicationContext();
@@ -38,7 +47,7 @@ public class CreateActivity extends ActionBarActivity {
 			toast.show();
 		}
 		else if(!(datasource.verification(activityName))){
-			datasource.createActivity(activityName);
+			datasource.createActivity(activityName, activityDesc, activityLoc, activityCost, activityTime);
 			
 			Context context = getApplicationContext();
 			CharSequence text = "Activity created!";

@@ -15,7 +15,8 @@ public class ActivityDataSource {
 	  private SQLiteDatabase database;
 	  private ActivityDBHelper dbHelper;
 	  private String[] allColumns = { ActivityDBHelper.COLUMN_ID,
-	      ActivityDBHelper.COLUMN_ACTIVITY };
+	      ActivityDBHelper.COLUMN_ACTIVITY, ActivityDBHelper.COLUMN_DESCRIPTION, ActivityDBHelper.COLUMN_LOCATION,
+	      ActivityDBHelper.COLUMN_COST, ActivityDBHelper.COLUMN_TIMEFRAME};
 
 	  public ActivityDataSource(Context context) {
 	    dbHelper = new ActivityDBHelper(context);
@@ -29,9 +30,13 @@ public class ActivityDataSource {
 	    dbHelper.close();
 	  }
 
-	  public Activity createActivity(String activity) {
+	  public Activity createActivity(String activity, String description, String location, int cost, int timeframe) {
 	    ContentValues values = new ContentValues();
 	    values.put(ActivityDBHelper.COLUMN_ACTIVITY, activity );
+	    values.put(ActivityDBHelper.COLUMN_DESCRIPTION, description );
+	    values.put(ActivityDBHelper.COLUMN_LOCATION, location );
+	    values.put(ActivityDBHelper.COLUMN_COST, cost );
+	    values.put(ActivityDBHelper.COLUMN_TIMEFRAME, timeframe );
 	    long insertId = database.insert(ActivityDBHelper.TABLE_ACTIVITIES, null,
 	        values);
 	    Cursor cursor = database.query(ActivityDBHelper.TABLE_ACTIVITIES,

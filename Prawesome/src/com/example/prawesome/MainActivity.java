@@ -33,7 +33,7 @@ public class MainActivity extends FragmentActivity {
 		String[] activities = new String[] {"do_that","do_this","do_whatever"};
 		for(int i = 0;i<3;i++){
 			if(!(datasource.verification(activities[i]))){
-				datasource.createActivity(activities[i]);
+				datasource.createActivity(activities[i],"description", "location", 15, 20);
 			}
 		}
 		
@@ -80,6 +80,12 @@ public class MainActivity extends FragmentActivity {
             return values.size();
         }       
     }
+	
+	public void detailedView (View view){
+		Intent detail = new Intent(this, DetailActivity.class);
+		startActivity(detail);
+	}
+
 	
 	@Override
 	  protected void onResume() {

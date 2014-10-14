@@ -12,6 +12,6 @@
     <string name="title_activity_third_fragment">ThirdFragment</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="about">About</string>
-
+    <string name="title_activity_detail">DetailActivity</string>
 
 </resources>

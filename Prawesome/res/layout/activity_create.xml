@@ -45,7 +45,7 @@
         android:text="Submit" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/Description"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_alignLeft="@+id/editText1"
@@ -59,46 +59,6 @@
         <requestFocus />
     </EditText>
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_corner"
-        android:ems="10"
-        android:hint="Location" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignTop="@+id/editText3"
-        android:src="@android:drawable/ic_menu_search" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignRight="@+id/editText4"
-        android:layout_below="@+id/editText4"
-        android:background="@drawable/rounded_corner"
-        android:ems="10"
-        android:hint="Cost" />
-
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/editText3"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_corner"
-        android:ems="10"
-        android:hint="Timeframe" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -108,5 +68,47 @@
         android:layout_alignTop="@+id/editText1"
         android:background="@drawable/rounded_corner"
         android:text="Image..." />
+
+    <EditText
+        android:id="@+id/Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/Description"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:hint="Location" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Location"
+        android:layout_toRightOf="@+id/Location"
+        android:src="@android:drawable/ic_menu_search" />
+
+    <EditText
+        android:id="@+id/Timeframe"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/Cost"
+        android:layout_margin="10dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:hint="Timeframe" />
+
+    <EditText
+        android:id="@+id/Cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Timeframe"
+        android:layout_alignRight="@+id/Timeframe"
+        android:layout_below="@+id/Location"
+        android:background="@drawable/rounded_corner"
+        android:ems="10"
+        android:hint="Cost" />
 
 </RelativeLayout>

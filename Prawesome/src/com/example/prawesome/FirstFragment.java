@@ -16,13 +16,14 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_first_fragment, container, false);
 
-        TextView tv = (TextView) v.findViewById(R.id.tvFragFirst);
+        final TextView tv = (TextView) v.findViewById(R.id.tvFragFirst);
         tv.setText(getArguments().getString("msg"));
         tv.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
+                intent.putExtra("Name", tv.getText().toString());
                 startActivity(intent);
             }
         });

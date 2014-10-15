@@ -15,45 +15,104 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="26dp"
+        android:text="TextView"
         android:textColor="@color/logoBlue"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/name"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="22dp"
-        android:textColor="@color/logoBlue"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/cost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/time"
-        android:layout_below="@+id/time"
-        android:textColor="@color/logoBlue"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/loc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/cost"
-        android:layout_below="@+id/cost"
-        android:textColor="@color/logoBlue"
-        android:text="TextView" />
+        android:textSize="26sp" />
 
     <TextView
         android:id="@+id/desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/loc"
-        android:layout_below="@+id/loc"
-        android:textColor="@color/logoBlue"
-        android:text="TextView" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="46dp"
+        android:text="TextView"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/desc"
+        android:layout_alignLeft="@+id/desc"
+        android:layout_marginBottom="18dp"
+        android:text="Description:"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView2"
+        android:text="Cost:"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/desc"
+        android:layout_below="@+id/textView3"
+        android:text="Timeframe:"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_centerVertical="true"
+        android:text="Location:"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="TextView"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cost"
+        android:layout_alignLeft="@+id/time"
+        android:text="TextView"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/time"
+        android:layout_alignLeft="@+id/time"
+        android:text="TextView"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cost"
+        android:layout_alignBottom="@+id/cost"
+        android:layout_toRightOf="@+id/time"
+        android:text="€"
+        android:textColor="@color/logoBlue" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/time"
+        android:layout_alignBottom="@+id/time"
+        android:layout_toRightOf="@+id/time"
+        android:text="min"
+        android:textColor="@color/logoBlue" />
 
 </RelativeLayout>

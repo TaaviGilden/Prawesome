@@ -1,5 +1,7 @@
 package com.example.prawesome;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import android.content.Intent;
@@ -20,8 +22,9 @@ import com.example.database.ActivityDataSource;
 
 public class MainActivity extends FragmentActivity {
 	private ActivityDataSource datasource;
-	List<Activity> values;
-	
+	static List<Activity> values;
+
+	public static HashMap<String,List<String>> activityDetails;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,7 +41,7 @@ public class MainActivity extends FragmentActivity {
 		}
 		
 		values = datasource.getAllActivities();	
-		Log.d("size", Integer.toString(values.size()));
+		Log.d("info", Integer.toString(values.size()));
 		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 	}
@@ -53,7 +56,10 @@ public class MainActivity extends FragmentActivity {
         public Fragment getItem(int pos) {
 
             while(pos<=values.size()){
-            	return FirstFragment.newInstance(values.get(pos).toString());
+//            	activityDetails.put(values.get(pos).getActivity(), Arrays.asList(values.get(pos).getDescription(), 
+//            			values.get(pos).getLocation(), Integer.toString(values.get(pos).getCost()), Integer.toString(values.get(pos).getTimeframe())));
+            	Log.d("info", values.get(pos).getActivity() + values.get(pos).getDescription() + values.get(pos).getLocation() + values.get(pos).getCost() + values.get(pos).getTimeframe());
+            	return FirstFragment.newInstance(values.get(pos).getActivity());
             }
 //        	switch(pos) {
 //         
@@ -75,11 +81,16 @@ public class MainActivity extends FragmentActivity {
 			return null;
         }
 
+
         @Override
         public int getCount() {
             return values.size();
         }       
     }
+	
+	public static List<Activity> getValues() {
+		return values;
+	}
 	
 	public void detailedView (View view){
 		Intent detail = new Intent(this, DetailActivity.class);

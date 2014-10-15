@@ -1,6 +1,7 @@
 package com.example.database;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import android.content.ContentValues;
@@ -87,6 +88,10 @@ public class ActivityDataSource {
 		Activity activity = new Activity();
 	    activity.setId(cursor.getLong(0));
 	    activity.setActivity(cursor.getString(1));
+	    activity.setDescription(cursor.getString(2));
+	    activity.setLocation(cursor.getString(3));
+	    activity.setCost(cursor.getInt(4));
+	    activity.setTimeframe(cursor.getInt(5));
 	    return activity;
 	  }
 

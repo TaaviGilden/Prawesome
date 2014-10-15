@@ -1,23 +1,42 @@
 package com.example.prawesome;
 
+import java.util.List;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 public class DetailActivity extends Activity {
+	List<com.example.database.Activity> values;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
+		Intent intent = getIntent();
+		String activityName = intent.getStringExtra("Name");
+
+		values = MainActivity.getValues();
 		TextView name = (TextView) findViewById(R.id.name);
 		TextView desc = (TextView) findViewById(R.id.desc);
 		TextView loc = (TextView) findViewById(R.id.loc);
 		TextView cost = (TextView) findViewById(R.id.cost);
 		TextView time = (TextView) findViewById(R.id.time);
-        name.setText("nimi");
+
+		for(int i = 0;i<values.size();i++){
+			if(activityName.equals(values.get(i).getActivity().toString())){
+				name.setText(values.get(i).getActivity().toString());
+				desc.setText(values.get(i).getDescription().toString());
+				loc.setText(values.get(i).getLocation().toString());
+				cost.setText(Integer.toString(values.get(i).getCost()));
+				time.setText(Integer.toString(values.get(i).getTimeframe()));
+			}
+		}
+		
 	}
 
 	@Override

@@ -98,7 +98,8 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/rounded_corner"
         android:ems="10"
-        android:hint="Timeframe" />
+        android:inputType="number"
+        android:hint="Timeframe (min)" />
 
     <EditText
         android:id="@+id/Cost"
@@ -109,6 +110,7 @@
         android:layout_below="@+id/Location"
         android:background="@drawable/rounded_corner"
         android:ems="10"
-        android:hint="Cost" />
+        android:inputType="number"
+        android:hint="Cost (€)" />
 
 </RelativeLayout>

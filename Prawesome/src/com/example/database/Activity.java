@@ -3,8 +3,44 @@ package com.example.database;
 public class Activity {
 	  private long id;
 	  private String activity;
+	  private String description;
+	  private String location;
+	  private int cost;
+	  private int timeframe;
 
-	  public long getId() {
+	  public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+	public int getTimeframe() {
+		return timeframe;
+	}
+
+	public void setTimeframe(int timeframe) {
+		this.timeframe = timeframe;
+	}
+
+	public long getId() {
 	    return id;
 	  }
 

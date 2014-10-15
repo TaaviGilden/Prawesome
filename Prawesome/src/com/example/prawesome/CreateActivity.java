@@ -3,6 +3,7 @@ package com.example.prawesome;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,18 +34,17 @@ public class CreateActivity extends ActionBarActivity {
 		String activityName = name.getText().toString();
 		String activityDesc = desc.getText().toString();
 		String activityLoc = loc.getText().toString();
+		String activityCostString = cost.getText().toString();
+		String activityTimeString = time.getText().toString();
 		int activityCost = Integer.parseInt(cost.getText().toString());
 		int activityTime = Integer.parseInt(time.getText().toString());
 		
-		if(activityName == ""){
+		if(activityName.matches("")||activityDesc.matches("")||activityLoc.matches("")||activityCostString.matches("")||activityTimeString.matches("")){
 			//TO DO -- got to figure out what's inside EditText when it's empty.
-			Context context = getApplicationContext();
-			CharSequence text = "Please insert activity name!";
-			int duration = Toast.LENGTH_SHORT;
 
-			Toast toast = Toast.makeText(context, text, duration);
-			toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
-			toast.show();
+			Toast.makeText(this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
+			return;
+
 		}
 		else if(!(datasource.verification(activityName))){
 			datasource.createActivity(activityName, activityDesc, activityLoc, activityCost, activityTime);

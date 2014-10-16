@@ -15,15 +15,14 @@ import com.example.database.ActivityDataSource;
 
 public class CreateActivity extends ActionBarActivity {
 	private ActivityDataSource datasource;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create);
-		
 	}
-	
-	public void submitActivity(View view){
+
+	public void submitActivity(View view) {
 		datasource = new ActivityDataSource(this);
 		datasource.open();
 		EditText name = (EditText) findViewById(R.id.editText1);
@@ -34,46 +33,44 @@ public class CreateActivity extends ActionBarActivity {
 		String activityName = name.getText().toString();
 		String activityDesc = desc.getText().toString();
 		String activityLoc = loc.getText().toString();
-		String activityCostString = cost.getText().toString();
-		String activityTimeString = time.getText().toString();
-		int activityCost = Integer.parseInt(cost.getText().toString());
-		int activityTime = Integer.parseInt(time.getText().toString());
-		
-		if(activityName.matches("")||activityDesc.matches("")||activityLoc.matches("")||activityCostString.matches("")||activityTimeString.matches("")){
-			//TO DO -- got to figure out what's inside EditText when it's empty.
+		String activityCost = cost.getText().toString();
+		String activityTime = time.getText().toString();
+		//int activityCost = Integer.parseInt(cost.getText().toString());
+		// activityTime = Integer.parseInt(time.getText().toString());
 
-			Toast.makeText(this, "Please fill all fields!", Toast.LENGTH_SHORT).show();
+		if (activityName.matches("") || activityDesc.matches("")
+				|| activityLoc.matches("") || activityCost.matches("")
+				|| activityTime.matches("")) {
+			// TO DO -- got to figure out what's inside EditText when it's empty.
+			Toast.makeText(this, "Please fill all fields!", Toast.LENGTH_SHORT)
+					.show();
 			return;
 
-		}
-		else if(!(datasource.verification(activityName))){
-			datasource.createActivity(activityName, activityDesc, activityLoc, activityCost, activityTime);
-			
+		} else if (!(datasource.verification(activityName))) {
+			datasource.createActivity(activityName, activityDesc, activityLoc,
+					Integer.parseInt(activityCost), Integer.parseInt(activityTime));
+
 			Context context = getApplicationContext();
 			CharSequence text = "Activity created!";
 			int duration = Toast.LENGTH_SHORT;
 
 			Toast toast = Toast.makeText(context, text, duration);
-			toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+			toast.setGravity(Gravity.CENTER | Gravity.CENTER, 0, 0);
 			toast.show();
-		}
-		else{
+		} else {
 			Context context = getApplicationContext();
 			CharSequence text = "Activity with this name already exists!";
 			int duration = Toast.LENGTH_SHORT;
 
 			Toast toast = Toast.makeText(context, text, duration);
-			toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+			toast.setGravity(Gravity.CENTER | Gravity.CENTER, 0, 0);
 			toast.show();
 		}
-		
-		
+
 		datasource.close();
-		
+
 	}
 
-	
-	  
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

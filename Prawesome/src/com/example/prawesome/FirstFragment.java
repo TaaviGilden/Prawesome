@@ -18,7 +18,7 @@ public class FirstFragment extends Fragment {
 
         final TextView tv = (TextView) v.findViewById(R.id.tvFragFirst);
         tv.setText(getArguments().getString("msg"));
-        tv.setOnClickListener(new View.OnClickListener() {
+        v.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {

@@ -32,6 +32,8 @@
         android:layout_toLeftOf="@+id/button1"
         android:background="@drawable/rounded_corner"
         android:ems="10"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
         android:hint="Title" />
 
     <Button
@@ -54,7 +56,8 @@
         android:background="@drawable/rounded_corner"
         android:ems="10"
         android:hint="Description"
-        android:inputType="textMultiLine" >
+        android:imeOptions="actionNext"
+        android:singleLine="true" >
 
         <requestFocus />
     </EditText>
@@ -78,6 +81,8 @@
         android:layout_margin="10dp"
         android:background="@drawable/rounded_corner"
         android:ems="10"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
         android:hint="Location" />
 
     <ImageView
@@ -99,6 +104,8 @@
         android:background="@drawable/rounded_corner"
         android:ems="10"
         android:inputType="number"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
         android:hint="Timeframe (min)" />
 
     <EditText
@@ -110,7 +117,9 @@
         android:layout_below="@+id/Location"
         android:background="@drawable/rounded_corner"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:inputType="number"
+        android:singleLine="true"
         android:hint="Cost (€)" />
 
 </RelativeLayout>

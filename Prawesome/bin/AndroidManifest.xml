@@ -47,6 +47,10 @@
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail" >
         </activity>
+        <activity
+            android:name=".DataBaseDebugActivity"
+            android:label="@string/title_activity_data_base_debug" >
+        </activity>
     </application>
 
 </manifest>

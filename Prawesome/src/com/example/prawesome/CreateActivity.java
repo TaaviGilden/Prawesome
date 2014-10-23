@@ -3,11 +3,12 @@ package com.example.prawesome;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnKeyListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -35,20 +36,22 @@ public class CreateActivity extends ActionBarActivity {
 		String activityLoc = loc.getText().toString();
 		String activityCost = cost.getText().toString();
 		String activityTime = time.getText().toString();
-		//int activityCost = Integer.parseInt(cost.getText().toString());
+		// int activityCost = Integer.parseInt(cost.getText().toString());
 		// activityTime = Integer.parseInt(time.getText().toString());
 
 		if (activityName.matches("") || activityDesc.matches("")
 				|| activityLoc.matches("") || activityCost.matches("")
 				|| activityTime.matches("")) {
-			// TO DO -- got to figure out what's inside EditText when it's empty.
+			// TO DO -- got to figure out what's inside EditText when it's
+			// empty.
 			Toast.makeText(this, "Please fill all fields!", Toast.LENGTH_SHORT)
 					.show();
 			return;
 
 		} else if (!(datasource.verification(activityName))) {
 			datasource.createActivity(activityName, activityDesc, activityLoc,
-					Integer.parseInt(activityCost), Integer.parseInt(activityTime));
+					Integer.parseInt(activityCost),
+					Integer.parseInt(activityTime));
 
 			Context context = getApplicationContext();
 			CharSequence text = "Activity created!";
@@ -68,6 +71,23 @@ public class CreateActivity extends ActionBarActivity {
 		}
 
 		datasource.close();
+		
+		//Doesn't work
+		time.setOnKeyListener(new OnKeyListener() {
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				if (event.getAction() == KeyEvent.ACTION_DOWN) {
+					switch (keyCode) {
+					case KeyEvent.KEYCODE_DPAD_CENTER:
+					case KeyEvent.KEYCODE_ENTER:
+						submitActivity(v);
+						return true;
+					default:
+						break;
+					}
+				}
+				return false;
+			}
+		});
 
 	}
 

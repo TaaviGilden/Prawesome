@@ -1,8 +1,24 @@
 package com.example.prawesome;
 
-import java.util.Arrays;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +31,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.database.Activity;
 import com.example.database.ActivityDataSource;
@@ -45,6 +62,8 @@ public class MainActivity extends FragmentActivity {
 		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 	}
+	
+	
 
 	private class MyPagerAdapter extends FragmentPagerAdapter {
 
@@ -141,6 +160,11 @@ public class MainActivity extends FragmentActivity {
 		}
 		else if (id == R.id.action_about) {
 			
+			return true;
+		}
+		else if (id == R.id.action_db) {
+			Intent create = new Intent(this, DataBaseDebugActivity.class);
+			startActivity(create);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

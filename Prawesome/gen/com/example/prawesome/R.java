@@ -1108,6 +1108,7 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
         public static final int action_context_bar=0x7f05001d;
+        public static final int action_db=0x7f050056;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
@@ -1233,22 +1234,24 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_create=0x7f030018;
-        public static final int activity_detail=0x7f030019;
-        public static final int activity_first_fragment=0x7f03001a;
-        public static final int activity_main=0x7f03001b;
-        public static final int activity_second_fragment=0x7f03001c;
-        public static final int activity_splash=0x7f03001d;
-        public static final int activity_third_fragment=0x7f03001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
+        public static final int activity_data_base_debug=0x7f030019;
+        public static final int activity_detail=0x7f03001a;
+        public static final int activity_first_fragment=0x7f03001b;
+        public static final int activity_main=0x7f03001c;
+        public static final int activity_second_fragment=0x7f03001d;
+        public static final int activity_splash=0x7f03001e;
+        public static final int activity_third_fragment=0x7f03001f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030020;
     }
     public static final class menu {
         public static final int create=0x7f0c0000;
-        public static final int detail=0x7f0c0001;
-        public static final int first=0x7f0c0002;
-        public static final int main=0x7f0c0003;
-        public static final int second=0x7f0c0004;
-        public static final int splash=0x7f0c0005;
-        public static final int third=0x7f0c0006;
+        public static final int data_base_debug=0x7f0c0001;
+        public static final int detail=0x7f0c0002;
+        public static final int first=0x7f0c0003;
+        public static final int main=0x7f0c0004;
+        public static final int second=0x7f0c0005;
+        public static final int splash=0x7f0c0006;
+        public static final int third=0x7f0c0007;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1296,8 +1299,10 @@ containing a value of this type.
         public static final int add_activity=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
         public static final int create_activity=0x7f0a0012;
+        public static final int db_string=0x7f0a001a;
         public static final int hello_world=0x7f0a000e;
         public static final int title_activity_create=0x7f0a0011;
+        public static final int title_activity_data_base_debug=0x7f0a0019;
         public static final int title_activity_detail=0x7f0a0018;
         public static final int title_activity_first_fragment=0x7f0a0013;
         public static final int title_activity_second_fragment=0x7f0a0014;

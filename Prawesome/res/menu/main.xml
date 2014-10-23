@@ -18,5 +18,10 @@
         android:orderInCategory="110"
         android:title="@string/about"
         app:showAsAction="never"/>
+        <item
+        android:id="@+id/action_db"
+        android:orderInCategory="110"
+        android:title="@string/db_string"
+        app:showAsAction="never"/>
 
 </menu>

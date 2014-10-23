@@ -167,6 +167,11 @@ public class MainActivity extends FragmentActivity {
 			startActivity(create);
 			return true;
 		}
+		else if (id == R.id.action_ldb) {
+			Intent create = new Intent(this, LocalDataBaseDebugAvtivity.class);
+			startActivity(create);
+			return true;
+		}
 		return super.onOptionsItemSelected(item);
 	}
 

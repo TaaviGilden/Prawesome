@@ -51,6 +51,10 @@
             android:name=".DataBaseDebugActivity"
             android:label="@string/title_activity_data_base_debug" >
         </activity>
+        <activity
+            android:name=".LocalDataBaseDebugAvtivity"
+            android:label="@string/title_activity_local_data_base_debug_avtivity" >
+        </activity>
     </application>
 
 </manifest>

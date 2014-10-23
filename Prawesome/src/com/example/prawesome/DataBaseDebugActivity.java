@@ -81,8 +81,8 @@ public class DataBaseDebugActivity extends ActionBarActivity {
 
 	                map.put("id", jObject.getString("id"));
 	                map.put("name", jObject.getString("name"));
-	                map.put("timestart", jObject.getString("timestart"));
-	                map.put("timeend", jObject.getString("timeend"));
+	                map.put("timelimitstart", jObject.getString("timelimitstart"));
+	                map.put("timelimitend", jObject.getString("timelimitend"));
 	                map.put("location", jObject.getString("location"));
 	                map.put("description", jObject.getString("description"));
 

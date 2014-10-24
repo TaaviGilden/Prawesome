@@ -14,7 +14,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	
 	public void restore_ldb(View v) {
 		try {
-			datasource = new ActivityDataSource(this);
+  			datasource = new ActivityDataSource(this);
 			datasource.open();
 			datasource.deleteAllActivities();
 			datasource.close();
@@ -39,9 +39,21 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			
 		}
 		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
+		
+	}
+	
+	public void count_ldb(View v) {		
+		try {
+			datasource = new ActivityDataSource(this);
+			datasource.open();
+			int i = datasource.elementsCount();
+			datasource.close();
+			Toast.makeText(this, "Elements count: " + i,Toast.LENGTH_LONG).show();			
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}
 	}
 	
 	@Override

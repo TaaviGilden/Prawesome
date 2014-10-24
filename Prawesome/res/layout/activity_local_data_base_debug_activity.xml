@@ -20,14 +20,15 @@
         android:text="Clean table" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/button1"
+            android:layout_below="@+id/button3"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
             android:background="@drawable/rounded_corner"
-            android:onClick="restore_ldb"
-            android:text="restore hardcode 3" />
+            android:onClick="count_ldb"
+            android:text="count" />
 
         <Button
             android:id="@+id/button3"
@@ -35,8 +36,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/button1"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_corner"
             android:onClick="list_ldb_elements"
             android:text="list of current" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="21dp"
+            android:background="@drawable/rounded_corner"
+            android:onClick="restore_ldb"
+            android:text="restore hardcode 3" />
         
 </RelativeLayout>

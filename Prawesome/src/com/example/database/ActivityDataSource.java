@@ -48,7 +48,16 @@ public class ActivityDataSource {
 	    cursor.close();
 	    return newActivity;
 	  }
-
+	  
+	  public int elementsCount(){
+		  
+		  String countQuery = "SELECT  * FROM " + ActivityDBHelper.TABLE_ACTIVITIES;  
+	      Cursor cursor = database.rawQuery(countQuery, null);  
+	      int count = cursor.getCount();
+	      cursor.close();  
+	      return count;
+	  }
+	  
 	  public void deleteActivity(Activity  activity ) {
 	    long id = activity.getId();
 	    System.out.println("Activity deleted with id: " + id);

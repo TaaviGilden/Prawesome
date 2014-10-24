@@ -1,5 +1,7 @@
 package com.example.prawesome;
 
+import com.example.database.ActivityDataSource;
+
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,18 +10,21 @@ import android.view.View;
 import android.widget.Toast;
 
 public class LocalDataBaseDebugActivity extends ActionBarActivity {
-	
-	public void clean_ldb(View v) {
-		try {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			
-		}
-		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
-	}
+	private ActivityDataSource datasource;
 	
 	public void restore_ldb(View v) {
+		try {
+			datasource = new ActivityDataSource(this);
+			datasource.open();
+			datasource.deleteAllActivities();
+			datasource.close();
+			Toast.makeText(this, "Table restored to hardcode" ,Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	public void clean_ldb(View v) {
 		try {
 			
 		} catch (Exception e) {

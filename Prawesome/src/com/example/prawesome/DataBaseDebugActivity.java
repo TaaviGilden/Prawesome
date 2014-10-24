@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -119,6 +120,11 @@ public class DataBaseDebugActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			return true;
+		}
+		else if (id == R.id.action_ldb) {
+			Intent create = new Intent(this, LocalDataBaseDebugActivity.class);
+			startActivity(create);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

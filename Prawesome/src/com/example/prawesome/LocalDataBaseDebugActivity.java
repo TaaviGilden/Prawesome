@@ -6,6 +6,7 @@ import com.example.database.Activity;
 import com.example.database.ActivityDataSource;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -91,6 +92,11 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			return true;
+		}
+		else if (id == R.id.action_db) {
+			Intent create = new Intent(this, DataBaseDebugActivity.class);
+			startActivity(create);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

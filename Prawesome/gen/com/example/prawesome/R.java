@@ -1655,7 +1655,7 @@ containing a value of this type.
         public static final int Description=0x7f090044;
         public static final int Location=0x7f090046;
         public static final int Timeframe=0x7f090048;
-        public static final int action_about=0x7f09005c;
+        public static final int action_about=0x7f09005e;
         public static final int action_bar=0x7f090033;
         public static final int action_bar_activity_content=0x7f090003;
         public static final int action_bar_container=0x7f090032;
@@ -1664,8 +1664,8 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f090021;
         public static final int action_bar_title=0x7f090020;
         public static final int action_context_bar=0x7f090034;
-        public static final int action_db=0x7f09005d;
-        public static final int action_ldb=0x7f09005e;
+        public static final int action_db=0x7f09005c;
+        public static final int action_ldb=0x7f09005b;
         public static final int action_menu_divider=0x7f090005;
         public static final int action_menu_presenter=0x7f090006;
         public static final int action_mode_bar=0x7f090030;
@@ -1673,7 +1673,7 @@ containing a value of this type.
         public static final int action_mode_close_button=0x7f090022;
         public static final int action_settings=0x7f09005a;
         public static final int activity_chooser_view_content=0x7f090023;
-        public static final int add_activity=0x7f09005b;
+        public static final int add_activity=0x7f09005d;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
         public static final int bottom=0x7f09001e;

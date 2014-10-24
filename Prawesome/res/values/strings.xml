@@ -16,6 +16,6 @@
     <string name="title_activity_data_base_debug">DataBaseDebugActivity</string>
     <string name="db_string">DataBaseDebug</string>
     <string name="local_db_string">LocalDataBaseDebug</string>
-    <string name="title_activity_local_data_base_debug_avtivity">LocalDataBaseDebugAvtivity</string>
+    <string name="title_activity_local_data_base_debug_activity">LocalDataBaseDebugActivity</string>
 
 </resources>

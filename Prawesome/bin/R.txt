@@ -465,7 +465,7 @@ int layout activity_create 0x7f030017
 int layout activity_data_base_debug 0x7f030018
 int layout activity_detail 0x7f030019
 int layout activity_first_fragment 0x7f03001a
-int layout activity_local_data_base_debug_avtivity 0x7f03001b
+int layout activity_local_data_base_debug_activity 0x7f03001b
 int layout activity_main 0x7f03001c
 int layout activity_second_fragment 0x7f03001d
 int layout activity_splash 0x7f03001e
@@ -475,7 +475,7 @@ int menu create 0x7f0c0000
 int menu data_base_debug 0x7f0c0001
 int menu detail 0x7f0c0002
 int menu first 0x7f0c0003
-int menu local_data_base_debug_avtivity 0x7f0c0004
+int menu local_data_base_debug_activity 0x7f0c0004
 int menu main 0x7f0c0005
 int menu second 0x7f0c0006
 int menu splash 0x7f0c0007
@@ -507,7 +507,7 @@ int string title_activity_create 0x7f0a0013
 int string title_activity_data_base_debug 0x7f0a001b
 int string title_activity_detail 0x7f0a001a
 int string title_activity_first_fragment 0x7f0a0015
-int string title_activity_local_data_base_debug_avtivity 0x7f0a001e
+int string title_activity_local_data_base_debug_activity 0x7f0a001e
 int string title_activity_second_fragment 0x7f0a0016
 int string title_activity_splash 0x7f0a0018
 int string title_activity_third_fragment 0x7f0a0017

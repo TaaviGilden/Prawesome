@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class LocalDataBaseDebugAvtivity extends ActionBarActivity {
+public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	
 	public void clean_ldb(View v) {
 		try {
@@ -42,13 +42,13 @@ public class LocalDataBaseDebugAvtivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_local_data_base_debug_avtivity);
+		setContentView(R.layout.activity_local_data_base_debug_activity);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.local_data_base_debug_avtivity, menu);
+		getMenuInflater().inflate(R.menu.local_data_base_debug_activity, menu);
 		return true;
 	}
 

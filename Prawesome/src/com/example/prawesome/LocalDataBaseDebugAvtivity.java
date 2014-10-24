@@ -4,9 +4,41 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class LocalDataBaseDebugAvtivity extends ActionBarActivity {
-
+	
+	public void clean_ldb(View v) {
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+		}
+		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
+	}
+	
+	public void restore_ldb(View v) {
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+		}
+		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
+	}
+	
+	public void list_ldb_elements(View v) {
+		try {
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+		}
+		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

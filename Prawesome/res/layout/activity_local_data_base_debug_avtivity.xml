@@ -9,9 +9,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.prawesome.LocalDataBaseDebugAvtivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/rounded_corner"
+        android:onClick="clean_ldb"        
+        android:text="Clean table" />
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button1"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_corner"
+            android:onClick="restore_ldb"
+            android:text="restore hardcode 3" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_corner"
+            android:onClick="list_ldb_elements"
+            android:text="list of current" />
+        
 </RelativeLayout>

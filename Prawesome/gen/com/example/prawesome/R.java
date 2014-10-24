@@ -1679,8 +1679,8 @@ containing a value of this type.
         public static final int bottom=0x7f09001e;
         public static final int button1=0x7f090043;
         public static final int button2=0x7f090045;
-        public static final int button3=0x7f090055;
-        public static final int button4=0x7f090056;
+        public static final int button3=0x7f090056;
+        public static final int button4=0x7f090055;
         public static final int checkbox=0x7f09002b;
         public static final int collapseActionView=0x7f090015;
         public static final int cost=0x7f090051;

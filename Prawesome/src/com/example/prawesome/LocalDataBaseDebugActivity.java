@@ -1,5 +1,8 @@
 package com.example.prawesome;
 
+import java.util.List;
+
+import com.example.database.Activity;
 import com.example.database.ActivityDataSource;
 
 import android.support.v7.app.ActionBarActivity;
@@ -13,6 +16,19 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	private ActivityDataSource datasource;
 	
 	public void restore_ldb(View v) {
+		// TODO no sure how the hard coded is done
+		//		should be done differently 
+		try {
+			
+		} catch (Exception e) {
+				// TODO: handle exception					
+		}
+		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
+	}
+	
+	public void clean_ldb(View v) {
+		// TODO cleans right but hard coding implementation 
+		//		generates them back after app restart
 		try {
   			datasource = new ActivityDataSource(this);
 			datasource.open();
@@ -22,26 +38,25 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
 		}
-	}
 	
-	public void clean_ldb(View v) {
-		try {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			
-		}
-		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
 	}
+		
 	
 	public void list_ldb_elements(View v) {
 		try {
-			
+			datasource = new ActivityDataSource(this);
+			datasource.open();
+			List<Activity> allActivities = datasource.getAllActivities();
+			datasource.close();
+			String allActivitiesString = "All activities:";
+			for (Activity activity : allActivities) {
+				allActivitiesString += "\n" + activity.toString();
+			}
+				
+			Toast.makeText(this, allActivitiesString,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
-			// TODO: handle exception
+			Toast.makeText(this, "Something went wrong:" + e.getMessage() ,Toast.LENGTH_LONG).show();
 		}
-		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
-		
 	}
 	
 	public void count_ldb(View v) {		

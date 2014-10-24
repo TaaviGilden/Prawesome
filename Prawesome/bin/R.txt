@@ -371,8 +371,8 @@ int id beginning 0x7f09001b
 int id bottom 0x7f09001e
 int id button1 0x7f090043
 int id button2 0x7f090045
-int id button3 0x7f090055
-int id button4 0x7f090056
+int id button3 0x7f090056
+int id button4 0x7f090055
 int id checkbox 0x7f09002b
 int id collapseActionView 0x7f090015
 int id cost 0x7f090051

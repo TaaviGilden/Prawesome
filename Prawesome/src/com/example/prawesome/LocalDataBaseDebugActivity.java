@@ -2,40 +2,46 @@ package com.example.prawesome;
 
 import java.util.List;
 
-import com.example.database.Activity;
-import com.example.database.ActivityDataSource;
-
-import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.database.Activity;
+import com.example.database.ActivityDataSource;
+
 public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	private ActivityDataSource datasource;
 	
 	public void restore_ldb(View v) {
-		// TODO no sure how the hard coded is done
-		//		should be done differently 
 		try {
+			datasource = new ActivityDataSource(this);
+			datasource.open();
+			datasource.deleteAllActivities();
 			
+			String[] activities = new String[] {"do_that","do_this","do_whatever"};
+			for(int i = 0;i<3;i++){
+				if(!(datasource.verification(activities[i]))){
+					datasource.createActivity(activities[i],"description", "location", 15, 20);
+				}
+			}			
+			datasource.close();
+			Toast.makeText(this, "Table restored to hardcode" ,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
-				// TODO: handle exception					
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
 		}
-		Toast.makeText(this, "Nothing here yet" ,Toast.LENGTH_LONG).show();
 	}
 	
 	public void clean_ldb(View v) {
-		// TODO cleans right but hard coding implementation 
-		//		generates them back after app restart
 		try {
   			datasource = new ActivityDataSource(this);
 			datasource.open();
 			datasource.deleteAllActivities();
 			datasource.close();
-			Toast.makeText(this, "Table restored to hardcode" ,Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Table cleaned" ,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
 		}

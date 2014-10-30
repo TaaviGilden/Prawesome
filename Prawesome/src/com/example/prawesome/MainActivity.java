@@ -49,14 +49,7 @@ public class MainActivity extends FragmentActivity {
 		
 		datasource = new ActivityDataSource(this);
 		datasource.open();
-		
-		String[] activities = new String[] {"do_that","do_this","do_whatever"};
-		for(int i = 0;i<3;i++){
-			if(!(datasource.verification(activities[i]))){
-				datasource.createActivity(activities[i],"description", "location", 15, 20);
-			}
-		}
-		
+				
 		values = datasource.getAllActivities();	
 		Log.d("info", Integer.toString(values.size()));
 		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);

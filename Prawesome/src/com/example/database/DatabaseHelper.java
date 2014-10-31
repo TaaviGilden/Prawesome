@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	  private static final String DATABASE_NAME = "activities.db";
 	  
 	  //IF YOU CHANGE SOMETHING IN DATABASE, UPDATE VERSION
-	  private static final int DATABASE_VERSION = 5;
+	  private static final int DATABASE_VERSION = 6;
 
 	  // Database creation sql statement
 	  private static final String CREATE_TABLE_ACTIVITIES = "create table "
@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 			  + TABLE_IGNORE + "("
 			  + COLUMN_ID + " integer primary key autoincrement, "
 			  + COLUMN_ACTIVITY_ID + " integer, "
-			  + COLUMN_ACTIVITY_STATUS + " BOOLEAN"
+			  + COLUMN_ACTIVITY_STATUS + " integer"
 			  + ");";
 	  
 	  public DatabaseHelper(Context context) {

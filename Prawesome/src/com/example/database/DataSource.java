@@ -14,11 +14,15 @@ public class DataSource {
 	// Database fields
 	private SQLiteDatabase database;
 	private DatabaseHelper dbHelper;
-	private String[] allColumns = { DatabaseHelper.COLUMN_ID,
+	private String[] allActivityColumns = { DatabaseHelper.COLUMN_ID,
 			DatabaseHelper.COLUMN_ACTIVITY, DatabaseHelper.COLUMN_DESCRIPTION,
 			DatabaseHelper.COLUMN_LOCATION, DatabaseHelper.COLUMN_COST,
 			DatabaseHelper.COLUMN_TIMEFRAME };
-
+	
+	private String[] allStateColumns = {DatabaseHelper.COLUMN_ID, 
+			DatabaseHelper.COLUMN_ACTIVITY_ID,
+			DatabaseHelper.COLUMN_ACTIVITY_STATUS};
+	
 	public DataSource(Context context) {
 		dbHelper = new DatabaseHelper(context);
 	}
@@ -48,7 +52,6 @@ public class DataSource {
 	}
 
 	public int elementsCount(String table) {
-
 		String countQuery = "SELECT  * FROM " + table;
 		Cursor cursor = database.rawQuery(countQuery, null);
 		int count = cursor.getCount();
@@ -86,7 +89,7 @@ public class DataSource {
 		List<Activity> activities = new ArrayList<Activity>();
 		
 		Cursor cursor = database.query(table,
-				allColumns, null, null, null, null, null);
+				allActivityColumns, null, null, null, null, null);
 		
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
@@ -100,10 +103,28 @@ public class DataSource {
 		return activities;		
 	}
 	
+	public List<State> getAllStates() {
+		List<State> states = new ArrayList<State>();
+		
+		Cursor cursor = database.query(DatabaseHelper.TABLE_IGNORE,
+				allStateColumns, null, null, null, null, null);
+		
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			State state = cursorToState(cursor);
+			states.add(state);
+			cursor.moveToNext();
+		}
+		// make sure to close the cursor
+		cursor.close();
+		
+		return states;		
+	}
+	
 	public void suggestion_to_activity(){
 		Activity activity = null;
 		Cursor cursor = database.query(DatabaseHelper.TABLE_SUGGESTIONS,
-				allColumns, null, null, null, null, null);
+				allActivityColumns, null, null, null, null, null);
 
 		cursor.moveToFirst();
 		activity = cursorToActivity(cursor);
@@ -122,5 +143,15 @@ public class DataSource {
 		activity.setTimeframe(cursor.getInt(5));
 		return activity;
 	}
+	
+	private State cursorToState(Cursor cursor){
+		State state = new State();
+		state.setId(cursor.getLong(0));
+		state.setActivity_id(cursor.getLong(1));
+		state.setNever(cursor.getInt(2));		
+		return state;		
+	}
+	
+	
 
 }

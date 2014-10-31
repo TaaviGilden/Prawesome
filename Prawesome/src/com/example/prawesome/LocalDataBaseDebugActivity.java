@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.database.Activity;
 import com.example.database.DataSource;
 import com.example.database.DatabaseHelper;
+import com.example.database.State;
 
 public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	private DataSource datasource;
@@ -75,6 +76,18 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		}	
 	}
 	
+	public void clean_ldb_ignore(View v) {
+		try {
+  			datasource = new DataSource(this);
+			datasource.open();
+			datasource.deleteAllFrom(DatabaseHelper.TABLE_IGNORE);
+			datasource.close();
+			Toast.makeText(this, "Table cleaned" ,Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}	
+	}
+	
 	
 	public void list_ldb_activities_elements(View v) {
 		try {
@@ -109,6 +122,23 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		}
 	}
 	
+	public void list_ldb_ignore_elements(View v) {
+		try {
+  			datasource = new DataSource(this);
+			datasource.open();
+			List<State> states = datasource.getAllStates();
+			datasource.close();
+			
+			String allStatesString = "All suggestions:";
+			for (State state: states) {
+				allStatesString += "\n" + state;
+			}				
+			Toast.makeText(this, allStatesString,Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}	
+	}
+	
 	
 	public void count_ldb_activities(View v) {		
 		try {
@@ -132,6 +162,18 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
 		}
+	}
+	
+	public void count_ldb_ignore(View v) {
+		try {
+  			datasource = new DataSource(this);
+			datasource.open();
+			int i = datasource.elementsCount(DatabaseHelper.TABLE_IGNORE);
+			datasource.close();
+			Toast.makeText(this, "Elements count: " + i,Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}	
 	}
 	
 	public void first_suggestion_to_activities(View v){

@@ -107,5 +107,43 @@
             android:layout_below="@+id/button7"
             android:onClick="first_suggestion_to_activities"
             android:text="first to activities" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button1"
+            android:layout_below="@+id/button1"
+            android:layout_marginTop="63dp"
+            android:text="Ignore"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/textView1"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="16dp"
+            android:onClick="count_ldb_ignore"
+            android:text="Count" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button9"
+            android:layout_below="@+id/button9"
+            android:onClick="clean_ldb_ignore"
+            android:text="clean" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button10"
+            android:layout_below="@+id/button10"
+            android:onClick="list_ldb_ignore_elements"
+            android:text="list" />
         
 </RelativeLayout>

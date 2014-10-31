@@ -8,7 +8,7 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper{
 	
 	  public static final String TABLE_ACTIVITIES = "activities";
-	  public static final String TABLE_SUGESTIONS = "sugestions";
+	  public static final String TABLE_SUGGESTIONS = "suggestions";
 	  public static final String COLUMN_ID = "_id";
 	  public static final String COLUMN_ACTIVITY = "activity";
 	  public static final String COLUMN_DESCRIPTION = "description";
@@ -29,8 +29,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 			  + COLUMN_COST + " integer not null, "
 			  + COLUMN_TIMEFRAME + " integer not null);"; 
 	  
-	  private static final String CREATE_TABLE_SUGESTIONS = "create table "
-		      + TABLE_SUGESTIONS + "(" 
+	  private static final String CREATE_TABLE_SUGGESTIONS = "create table "
+		      + TABLE_SUGGESTIONS + "(" 
 				  + COLUMN_ID + " integer primary key autoincrement, " 
 				  + COLUMN_ACTIVITY + " text not null, "
 				  + COLUMN_DESCRIPTION + " text not null, " 
@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	  @Override
 	  public void onCreate(SQLiteDatabase database) {
 	    database.execSQL(CREATE_TABLE_ACTIVITIES);
-	    database.execSQL(CREATE_TABLE_SUGESTIONS);
+	    database.execSQL(CREATE_TABLE_SUGGESTIONS);
 	  }
 
 	  @Override

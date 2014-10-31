@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.database.Activity;
 import com.example.database.DataSource;
+import com.example.database.DatabaseHelper;
 
 public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	private DataSource datasource;
@@ -20,7 +21,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		try {
 			datasource = new DataSource(this);
 			datasource.open();
-			datasource.deleteAllActivities();
+			datasource.deleteAllFrom(DatabaseHelper.TABLE_ACTIVITIES);
 			
 			String[] activities = new String[] {"do_that","do_this","do_whatever"};
 			for(int i = 0;i<3;i++){
@@ -35,21 +36,32 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		}
 	}
 	
-	public void clean_ldb(View v) {
+	public void clean_ldb_activties(View v) {
 		try {
   			datasource = new DataSource(this);
 			datasource.open();
-			datasource.deleteAllActivities();
+			datasource.deleteAllFrom(DatabaseHelper.TABLE_ACTIVITIES);
 			datasource.close();
 			Toast.makeText(this, "Table cleaned" ,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
-		}
-	
+		}	
 	}
-		
 	
-	public void list_ldb_elements(View v) {
+	public void clean_ldb_suggestions(View v) {
+		try {
+  			datasource = new DataSource(this);
+			datasource.open();
+			datasource.deleteAllFrom(DatabaseHelper.TABLE_SUGGESTIONS);
+			datasource.close();
+			Toast.makeText(this, "Table cleaned" ,Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}	
+	}
+	
+	
+	public void list_ldb_activities_elements(View v) {
 		try {
 			datasource = new DataSource(this);
 			datasource.open();
@@ -66,13 +78,67 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		}
 	}
 	
-	public void count_ldb(View v) {		
+	public void list_ldb_suggestion_elements(View v) {
 		try {
 			datasource = new DataSource(this);
 			datasource.open();
-			int i = datasource.elementsCount();
+			List<Activity> allActivities = datasource.getAllSugsestions();
+			datasource.close();
+			String allActivitiesString = "All suggestions:";
+			for (Activity activity : allActivities) {
+				allActivitiesString += "\n" + activity.toString();
+			}
+				
+			Toast.makeText(this, allActivitiesString,Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong:" + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	
+	public void count_ldb_activities(View v) {		
+		try {
+			datasource = new DataSource(this);
+			datasource.open();
+			int i = datasource.elementsCount(DatabaseHelper.TABLE_ACTIVITIES);
 			datasource.close();
 			Toast.makeText(this, "Elements count: " + i,Toast.LENGTH_LONG).show();			
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	public void count_ldb_suggestions(View v) {		
+		try {
+			datasource = new DataSource(this);
+			datasource.open();
+			int i = datasource.elementsCount(DatabaseHelper.TABLE_SUGGESTIONS);
+			datasource.close();
+			Toast.makeText(this, "Elements count: " + i,Toast.LENGTH_LONG).show();			
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	public void delete_first_element(View v){
+		try {
+			//TODO
+			datasource = new DataSource(this);
+			datasource.open();
+			datasource.close();
+			Toast.makeText(this, "Nothing here yet",Toast.LENGTH_LONG).show();			
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	public void first_suggestion_to_activities(View v){
+		try {
+			//TODO
+			datasource = new DataSource(this);
+			datasource.open();
+			datasource.close();
+			Toast.makeText(this, "Nothing here yet",Toast.LENGTH_LONG).show();			
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
 		}

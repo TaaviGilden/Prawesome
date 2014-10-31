@@ -1,3 +1,4 @@
+<!-- DO NOT MAKE NICE, IT'S JUST A DEBUG FOR US -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,47 +10,102 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.prawesome.LocalDataBaseDebugActivity" >
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/rounded_corner"
-        android:onClick="clean_ldb"        
-        android:text="Clean table" />
-
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="18dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="83dp"
             android:background="@drawable/rounded_corner"
-            android:onClick="count_ldb"
-            android:text="count" />
+            android:onClick="restore_ldb"
+            android:text="restore hardcode 3" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_below="@+id/button3"
+            android:background="@drawable/rounded_corner"
+            android:onClick="clean_ldb_activties"
+            android:text="Clean table" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/button1"
+            android:layout_below="@+id/button4"
             android:background="@drawable/rounded_corner"
-            android:onClick="list_ldb_elements"
+            android:onClick="list_ldb_activities_elements"
             android:text="list of current" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/button1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="21dp"
+            android:layout_alignLeft="@+id/button3"
+            android:layout_below="@+id/button2"
             android:background="@drawable/rounded_corner"
-            android:onClick="restore_ldb"
-            android:text="restore hardcode 3" />
+            android:onClick="count_ldb_activities"
+            android:text="count" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button2"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_marginBottom="58dp"
+            android:text="Activities"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignParentRight="true"
+            android:text="Suggsestions"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button5"
+            android:layout_alignRight="@+id/textView2"
+            android:onClick="list_ldb_suggestion_elements"
+            android:text="list" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button3"
+            android:layout_alignBottom="@+id/button3"
+            android:layout_alignParentRight="true"
+            android:onClick="delete_first_element"
+            android:text="delete first"/>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button7"
+            android:layout_alignParentRight="true"
+            android:onClick="clean_ldb_suggestions"
+            android:text="clean all"/>
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/button7"
+            android:layout_below="@+id/button7"
+            android:onClick="first_suggestion_to_activities"
+            android:text="first to activities" />
         
 </RelativeLayout>

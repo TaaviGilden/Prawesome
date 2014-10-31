@@ -55,7 +55,7 @@ public class DataSource {
 		    values.put(DatabaseHelper.COLUMN_LOCATION, location );
 		    values.put(DatabaseHelper.COLUMN_COST, cost );
 		    values.put(DatabaseHelper.COLUMN_TIMEFRAME, timeframe );
-		    long insertId = database.insert(DatabaseHelper.TABLE_SUGESTIONS, null,
+		    long insertId = database.insert(DatabaseHelper.TABLE_SUGGESTIONS, null,
 		        values);
 		    Cursor cursor = database.query(DatabaseHelper.TABLE_ACTIVITIES,
 		        allColumns, DatabaseHelper.COLUMN_ID + " = " + insertId, null,
@@ -66,9 +66,9 @@ public class DataSource {
 		    return newActivity;
 		  }
 	  
-	  public int elementsCount(){
+	  public int elementsCount(String table){
 		  
-		  String countQuery = "SELECT  * FROM " + DatabaseHelper.TABLE_ACTIVITIES;  
+		  String countQuery = "SELECT  * FROM " + table;  
 	      Cursor cursor = database.rawQuery(countQuery, null);  
 	      int count = cursor.getCount();
 	      cursor.close();  
@@ -83,14 +83,14 @@ public class DataSource {
 	  }
 	  
 	  public boolean verification(String activity) {
-		    Cursor c = database.rawQuery("SELECT 1 FROM "+DatabaseHelper.TABLE_SUGESTIONS + " WHERE "+DatabaseHelper.COLUMN_ACTIVITY+"=?", new String[] {activity});
+		    Cursor c = database.rawQuery("SELECT 1 FROM "+DatabaseHelper.TABLE_SUGGESTIONS + " WHERE "+DatabaseHelper.COLUMN_ACTIVITY+"=?", new String[] {activity});
 		    boolean exists = c.moveToFirst();
 		    c.close();
 		    return exists;
 		}
 	  
-	  public void deleteAllActivities(){
-		  database.delete(DatabaseHelper.TABLE_ACTIVITIES, null, null);
+	  public void deleteAllFrom(String table){
+		  database.delete(table, null, null);
 	  }
 
 	  public List<Activity> getAllActivities() {
@@ -109,6 +109,23 @@ public class DataSource {
 	    cursor.close();
 	    return activities;
 	  }
+	  
+	  public List<Activity> getAllSugsestions() {
+		    List<Activity> activities = new ArrayList<Activity>();
+
+		    Cursor cursor = database.query(DatabaseHelper.TABLE_SUGGESTIONS,
+		        allColumns, null, null, null, null, null);
+
+		    cursor.moveToFirst();
+		    while (!cursor.isAfterLast()) {
+		    	Activity activity = cursorToActivity(cursor);
+		    	activities.add(activity);
+		    	cursor.moveToNext();
+		    }
+		    // make sure to close the cursor
+		    cursor.close();
+		    return activities;
+		  }
 
 	  private Activity cursorToActivity(Cursor cursor) {
 		Activity activity = new Activity();

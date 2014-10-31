@@ -33,13 +33,9 @@ public class MainActivity extends FragmentActivity {
 		datasource.open();
 
 		values = datasource.getAllActivities();
-		Log.d("FragmentGen", "start0");
 		Log.d("info", Integer.toString(values.size()));
-		Log.d("FragmentGen", "start1");
 		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
-		Log.d("FragmentGen", "start2");
 		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-		Log.d("FragmentGen", "start3");
 	}
 
 	private class MyPagerAdapter extends FragmentPagerAdapter {
@@ -50,22 +46,14 @@ public class MainActivity extends FragmentActivity {
 
 		@Override
 		public Fragment getItem(int pos) {
-			Log.d("FragmentGen", "start real thing");
 			while (values.size() > 0 && pos <= values.size()) {
 				// activityDetails.put(values.get(pos).getActivity(),
 				// Arrays.asList(values.get(pos).getDescription(),
 				// values.get(pos).getLocation(),
 				// Integer.toString(values.get(pos).getCost()),
 				// Integer.toString(values.get(pos).getTimeframe())));
-				Log.d("FragmentGen", "pos =" + pos + "size= " + values.size()
-						+ values.get(pos).getActivity()
-						+ values.get(pos).getDescription()
-						+ values.get(pos).getLocation()
-						+ values.get(pos).getCost()
-						+ values.get(pos).getTimeframe());
 				return FirstFragment.newInstance(values.get(pos).getActivity());
 			}
-			Log.d("FragmentGen", "test");
 			return FirstFragment.non();
 			// switch(pos) {
 			//
@@ -118,18 +106,15 @@ public class MainActivity extends FragmentActivity {
 	protected void onResume() {
 		datasource.open();
 		super.onResume();
-		Log.d("FragmentGen", "resuem");
 	}
 
 	@Override
 	protected void onPause() {
 		datasource.close();
-		Log.d("FragmentGen", "pause");
 		super.onPause();
 	}
 
 	public void createActivity(View view) {
-		Log.d("FragmentGen", "createActicity");
 		Intent create = new Intent(this, CreateActivity.class);
 		startActivity(create);
 	}

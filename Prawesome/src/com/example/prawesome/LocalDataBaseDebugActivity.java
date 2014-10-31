@@ -5,7 +5,6 @@ import java.util.List;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,17 +39,11 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		try {
 			datasource = new DataSource(this);
 			datasource.open();
-			Log.d("ldb_db", "1");
 			datasource.deleteAllFrom(DatabaseHelper.TABLE_SUGGESTIONS);
-			Log.d("ldb_db", "2");
 			String[] activities = new String[] {"suggestion_1","suggestion_2","suggestion_2"};
-			Log.d("ldb_db", "3");
 			for(int i = 0;i<3;i++){
-				Log.d("ldb_db", "i = " + i);
 				datasource.createSugestion(activities[i],"description", "location", 15, 20);
-				Log.d("ldb_db", "for loop end");
 			}			
-			Log.d("ldb_db", "4");
 			datasource.close();
 			Toast.makeText(this, "Table restored to hardcode" ,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
@@ -93,7 +86,6 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			for (Activity activity : allActivities) {
 				allActivitiesString += "\n" + activity.toString();
 			}
-				
 			Toast.makeText(this, allActivitiesString,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong:" + e.getMessage() ,Toast.LENGTH_LONG).show();

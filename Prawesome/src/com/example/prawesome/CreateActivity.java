@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.database.DataSource;
+import com.example.database.DatabaseHelper;
 
 public class CreateActivity extends ActionBarActivity {
 	private DataSource datasource;
@@ -49,7 +50,7 @@ public class CreateActivity extends ActionBarActivity {
 			return;
 
 		} else if (!(datasource.verification(activityName))) {
-			datasource.createSugestion(activityName, activityDesc, activityLoc,
+			datasource.createActivityTo(DatabaseHelper.TABLE_SUGGESTIONS,activityName, activityDesc, activityLoc,
 					Integer.parseInt(activityCost),
 					Integer.parseInt(activityTime));
 

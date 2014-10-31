@@ -30,27 +30,12 @@ public class DataSource {
 	public void close() {
 		dbHelper.close();
 	}
-
-	public Activity createActivity(String activity, String description,
-			String location, int cost, int timeframe) {
-		ContentValues values = new ContentValues();
-		values.put(DatabaseHelper.COLUMN_ACTIVITY, activity);
-		values.put(DatabaseHelper.COLUMN_DESCRIPTION, description);
-		values.put(DatabaseHelper.COLUMN_LOCATION, location);
-		values.put(DatabaseHelper.COLUMN_COST, cost);
-		values.put(DatabaseHelper.COLUMN_TIMEFRAME, timeframe);
-		long insertId = database.insert(DatabaseHelper.TABLE_ACTIVITIES, null,
-				values);
-		Cursor cursor = database.query(DatabaseHelper.TABLE_ACTIVITIES,
-				allColumns, DatabaseHelper.COLUMN_ID + " = " + insertId, null,
-				null, null, null);
-		cursor.moveToFirst();
-		Activity newActivity = cursorToActivity(cursor);
-		cursor.close();
-		return newActivity;
+	
+	public void addActivityTo(String table, Activity activity){
+		
 	}
 
-	public Activity createSugestion(String activity, String description,
+	public void createActivityTo(String table,String activity, String description,
 			String location, int cost, int timeframe) {
 		ContentValues values = new ContentValues();
 		values.put(DatabaseHelper.COLUMN_ACTIVITY, activity);
@@ -58,15 +43,8 @@ public class DataSource {
 		values.put(DatabaseHelper.COLUMN_LOCATION, location);
 		values.put(DatabaseHelper.COLUMN_COST, cost);
 		values.put(DatabaseHelper.COLUMN_TIMEFRAME, timeframe);
-		long insertId = database.insert(DatabaseHelper.TABLE_SUGGESTIONS, null,
+		database.insert(table, null,
 				values);
-		Cursor cursor = database.query(DatabaseHelper.TABLE_SUGGESTIONS,
-				allColumns, DatabaseHelper.COLUMN_ID + " = " + insertId, null,
-				null, null, null);
-		cursor.moveToFirst();
-		Activity newActivity = cursorToActivity(cursor);
-		cursor.close();
-		return newActivity;
 	}
 
 	public int elementsCount(String table) {
@@ -103,13 +81,13 @@ public class DataSource {
 	public void deleteAllFrom(String table) {
 		database.delete(table, null, null);
 	}
-
-	public List<Activity> getAllActivities() {
+	
+	public List<Activity> getAllActivitiesFrom(String table) {
 		List<Activity> activities = new ArrayList<Activity>();
-
-		Cursor cursor = database.query(DatabaseHelper.TABLE_ACTIVITIES,
+		
+		Cursor cursor = database.query(table,
 				allColumns, null, null, null, null, null);
-
+		
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Activity activity = cursorToActivity(cursor);
@@ -118,24 +96,8 @@ public class DataSource {
 		}
 		// make sure to close the cursor
 		cursor.close();
-		return activities;
-	}
-
-	public List<Activity> getAllSugsestions() {
-		List<Activity> activities = new ArrayList<Activity>();
-
-		Cursor cursor = database.query(DatabaseHelper.TABLE_SUGGESTIONS,
-				allColumns, null, null, null, null, null);
-
-		cursor.moveToFirst();
-		while (!cursor.isAfterLast()) {
-			Activity activity = cursorToActivity(cursor);
-			activities.add(activity);
-			cursor.moveToNext();
-		}
-		// make sure to close the cursor
-		cursor.close();
-		return activities;
+		
+		return activities;		
 	}
 	
 	public void suggestion_to_activity(){
@@ -145,7 +107,7 @@ public class DataSource {
 
 		cursor.moveToFirst();
 		activity = cursorToActivity(cursor);
-		createActivity(activity.getActivity(), activity.getDescription(), activity.getLocation(),
+		createActivityTo(DatabaseHelper.TABLE_ACTIVITIES,activity.getActivity(), activity.getDescription(), activity.getLocation(),
 				activity.getCost(), activity.getTimeframe());
 		deleteSuggestion(activity.getId());
 	}

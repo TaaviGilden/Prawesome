@@ -17,6 +17,7 @@ import android.view.View;
 
 import com.example.database.Activity;
 import com.example.database.DataSource;
+import com.example.database.DatabaseHelper;
 
 public class MainActivity extends FragmentActivity {
 	private DataSource datasource;
@@ -32,7 +33,7 @@ public class MainActivity extends FragmentActivity {
 		datasource = new DataSource(this);
 		datasource.open();
 
-		values = datasource.getAllActivities();
+		values = datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);
 		Log.d("info", Integer.toString(values.size()));
 		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
 		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));

@@ -26,7 +26,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			String[] activities = new String[] {"do_that","do_this","do_whatever"};
 			for(int i = 0;i<3;i++){
 				if(!(datasource.verification(activities[i]))){
-					datasource.createActivity(activities[i],"description", "location", 15, 20);
+					datasource.createActivityTo(DatabaseHelper.TABLE_ACTIVITIES,activities[i],"description", "location", 15, 20);
 				}
 			}			
 			datasource.close();
@@ -42,7 +42,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			datasource.deleteAllFrom(DatabaseHelper.TABLE_SUGGESTIONS);
 			String[] activities = new String[] {"suggestion_1","suggestion_2","suggestion_2"};
 			for(int i = 0;i<3;i++){
-				datasource.createSugestion(activities[i],"description", "location", 15, 20);
+				datasource.createActivityTo(DatabaseHelper.TABLE_SUGGESTIONS,activities[i],"description", "location", 15, 20);
 			}			
 			datasource.close();
 			Toast.makeText(this, "Table restored to hardcode" ,Toast.LENGTH_LONG).show();
@@ -80,7 +80,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		try {
 			datasource = new DataSource(this);
 			datasource.open();
-			List<Activity> allActivities = datasource.getAllActivities();
+			List<Activity> allActivities = datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);
 			datasource.close();
 			String allActivitiesString = "All activities:";
 			for (Activity activity : allActivities) {
@@ -96,7 +96,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		try {
 			datasource = new DataSource(this);
 			datasource.open();
-			List<Activity> allActivities = datasource.getAllSugsestions();
+			List<Activity> allActivities = datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_SUGGESTIONS);
 			datasource.close();
 			String allActivitiesString = "All suggestions:";
 			for (Activity activity : allActivities) {

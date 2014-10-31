@@ -12,10 +12,10 @@ import android.view.View.OnKeyListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.database.ActivityDataSource;
+import com.example.database.DataSource;
 
 public class CreateActivity extends ActionBarActivity {
-	private ActivityDataSource datasource;
+	private DataSource datasource;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class CreateActivity extends ActionBarActivity {
 	}
 
 	public void submitActivity(View view) {
-		datasource = new ActivityDataSource(this);
+		datasource = new DataSource(this);
 		datasource.open();
 		EditText name = (EditText) findViewById(R.id.editText1);
 		EditText desc = (EditText) findViewById(R.id.Description);
@@ -49,7 +49,7 @@ public class CreateActivity extends ActionBarActivity {
 			return;
 
 		} else if (!(datasource.verification(activityName))) {
-			datasource.createActivity(activityName, activityDesc, activityLoc,
+			datasource.createSugestion(activityName, activityDesc, activityLoc,
 					Integer.parseInt(activityCost),
 					Integer.parseInt(activityTime));
 

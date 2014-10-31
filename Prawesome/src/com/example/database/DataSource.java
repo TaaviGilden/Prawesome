@@ -9,7 +9,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-public class ActivityDataSource {
+public class DataSource {
 	
 	// Database fields
 	  private SQLiteDatabase database;
@@ -18,7 +18,7 @@ public class ActivityDataSource {
 	      DatabaseHelper.COLUMN_ACTIVITY, DatabaseHelper.COLUMN_DESCRIPTION, DatabaseHelper.COLUMN_LOCATION,
 	      DatabaseHelper.COLUMN_COST, DatabaseHelper.COLUMN_TIMEFRAME};
 
-	  public ActivityDataSource(Context context) {
+	  public DataSource(Context context) {
 	    dbHelper = new DatabaseHelper(context);
 	  }
 
@@ -48,6 +48,24 @@ public class ActivityDataSource {
 	    return newActivity;
 	  }
 	  
+	  public Activity createSugestion(String activity, String description, String location, int cost, int timeframe) {
+		    ContentValues values = new ContentValues();
+		    values.put(DatabaseHelper.COLUMN_ACTIVITY, activity );
+		    values.put(DatabaseHelper.COLUMN_DESCRIPTION, description );
+		    values.put(DatabaseHelper.COLUMN_LOCATION, location );
+		    values.put(DatabaseHelper.COLUMN_COST, cost );
+		    values.put(DatabaseHelper.COLUMN_TIMEFRAME, timeframe );
+		    long insertId = database.insert(DatabaseHelper.TABLE_SUGESTIONS, null,
+		        values);
+		    Cursor cursor = database.query(DatabaseHelper.TABLE_ACTIVITIES,
+		        allColumns, DatabaseHelper.COLUMN_ID + " = " + insertId, null,
+		        null, null, null);
+		    cursor.moveToFirst();
+		    Activity newActivity = cursorToActivity(cursor);
+		    cursor.close();
+		    return newActivity;
+		  }
+	  
 	  public int elementsCount(){
 		  
 		  String countQuery = "SELECT  * FROM " + DatabaseHelper.TABLE_ACTIVITIES;  
@@ -65,7 +83,7 @@ public class ActivityDataSource {
 	  }
 	  
 	  public boolean verification(String activity) {
-		    Cursor c = database.rawQuery("SELECT 1 FROM "+DatabaseHelper.TABLE_ACTIVITIES+" WHERE "+DatabaseHelper.COLUMN_ACTIVITY+"=?", new String[] {activity});
+		    Cursor c = database.rawQuery("SELECT 1 FROM "+DatabaseHelper.TABLE_SUGESTIONS + " WHERE "+DatabaseHelper.COLUMN_ACTIVITY+"=?", new String[] {activity});
 		    boolean exists = c.moveToFirst();
 		    c.close();
 		    return exists;

@@ -16,10 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.database.Activity;
-import com.example.database.ActivityDataSource;
+import com.example.database.DataSource;
 
 public class MainActivity extends FragmentActivity {
-	private ActivityDataSource datasource;
+	private DataSource datasource;
 	static List<Activity> values;
 
 	public static HashMap<String, List<String>> activityDetails;
@@ -29,7 +29,7 @@ public class MainActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		datasource = new ActivityDataSource(this);
+		datasource = new DataSource(this);
 		datasource.open();
 
 		values = datasource.getAllActivities();

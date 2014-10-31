@@ -11,14 +11,14 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.database.Activity;
-import com.example.database.ActivityDataSource;
+import com.example.database.DataSource;
 
 public class LocalDataBaseDebugActivity extends ActionBarActivity {
-	private ActivityDataSource datasource;
+	private DataSource datasource;
 	
 	public void restore_ldb(View v) {
 		try {
-			datasource = new ActivityDataSource(this);
+			datasource = new DataSource(this);
 			datasource.open();
 			datasource.deleteAllActivities();
 			
@@ -37,7 +37,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	
 	public void clean_ldb(View v) {
 		try {
-  			datasource = new ActivityDataSource(this);
+  			datasource = new DataSource(this);
 			datasource.open();
 			datasource.deleteAllActivities();
 			datasource.close();
@@ -51,7 +51,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	
 	public void list_ldb_elements(View v) {
 		try {
-			datasource = new ActivityDataSource(this);
+			datasource = new DataSource(this);
 			datasource.open();
 			List<Activity> allActivities = datasource.getAllActivities();
 			datasource.close();
@@ -68,7 +68,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 	
 	public void count_ldb(View v) {		
 		try {
-			datasource = new ActivityDataSource(this);
+			datasource = new DataSource(this);
 			datasource.open();
 			int i = datasource.elementsCount();
 			datasource.close();

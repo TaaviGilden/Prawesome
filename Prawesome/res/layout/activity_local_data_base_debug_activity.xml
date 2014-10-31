@@ -18,7 +18,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="83dp"
             android:background="@drawable/rounded_corner"
-            android:onClick="restore_ldb"
+            android:onClick="restore_ldb_activities"
             android:text="restore hardcode 3" />
 
         <Button
@@ -87,8 +87,8 @@
             android:layout_alignBaseline="@+id/button3"
             android:layout_alignBottom="@+id/button3"
             android:layout_alignParentRight="true"
-            android:onClick="delete_first_element"
-            android:text="delete first"/>
+            android:onClick="restore_ldb_suggestions"
+            android:text="restore defult"/>
 
         <Button
             android:id="@+id/button5"

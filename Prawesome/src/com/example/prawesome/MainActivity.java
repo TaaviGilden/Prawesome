@@ -35,7 +35,8 @@ public class MainActivity extends FragmentActivity {
 		datasource = new DataSource(this);
 		datasource.open();
 
-		values = datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);
+		//values = datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);
+		values = datasource.getAllActivitiesNotIgnored();
 		Log.d("info", Integer.toString(values.size()));
 		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
 		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));

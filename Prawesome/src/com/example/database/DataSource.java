@@ -23,6 +23,13 @@ public class DataSource {
 			DatabaseHelper.COLUMN_ACTIVITY_ID,
 			DatabaseHelper.COLUMN_ACTIVITY_STATUS};
 	
+	private String notInIgnore = DatabaseHelper.COLUMN_ID 
+			+ " not in "
+			+ "("
+			+ "SELECT " + DatabaseHelper.COLUMN_ACTIVITY_ID + " FROM " 
+			+ DatabaseHelper.TABLE_IGNORE
+			+ ")";
+	
 	public DataSource(Context context) {
 		dbHelper = new DatabaseHelper(context);
 	}
@@ -86,6 +93,24 @@ public class DataSource {
 		
 		Cursor cursor = database.query(table,
 				allActivityColumns, null, null, null, null, null);
+		
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Activity activity = cursorToActivity(cursor);
+			activities.add(activity);
+			cursor.moveToNext();
+		}
+		// make sure to close the cursor
+		cursor.close();
+		
+		return activities;		
+	}
+	
+	public List<Activity> getAllActivitiesNotIgnored() {
+		List<Activity> activities = new ArrayList<Activity>();
+		
+		Cursor cursor = database.query(DatabaseHelper.TABLE_ACTIVITIES,
+				allActivityColumns, notInIgnore, null, null, null, null);
 		
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {

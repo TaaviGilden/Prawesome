@@ -34,10 +34,6 @@ public class DataSource {
 	public void close() {
 		dbHelper.close();
 	}
-	
-	public void addActivityTo(String table, Activity activity){
-		
-	}
 
 	public void createActivityTo(String table,String activity, String description,
 			String location, int cost, int timeframe) {
@@ -133,6 +129,27 @@ public class DataSource {
 		deleteSuggestion(activity.getId());
 	}
 	
+	public void addIgnore(long id,boolean never){
+		ContentValues values = new ContentValues();
+		values.put(DatabaseHelper.COLUMN_ACTIVITY_ID, id);	
+		values.put(DatabaseHelper.COLUMN_ACTIVITY_STATUS, boolToInteger(never));
+		database.insert(DatabaseHelper.TABLE_IGNORE, null,
+				values);
+	}
+	
+	private int boolToInteger(Boolean b){
+		if (b) {
+			return 1;
+		}else {
+			return 0;
+		}			
+	}
+	
+	public void deleteNotNow(){
+		database.delete(DatabaseHelper.TABLE_IGNORE,
+				DatabaseHelper.COLUMN_ACTIVITY_STATUS + " = " + 0, null);
+	}
+	
 	private Activity cursorToActivity(Cursor cursor) {
 		Activity activity = new Activity();
 		activity.setId(cursor.getLong(0));
@@ -151,7 +168,5 @@ public class DataSource {
 		state.setNever(cursor.getInt(2));		
 		return state;		
 	}
-	
-	
 
 }

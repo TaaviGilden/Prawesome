@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.database.Activity;
 import com.example.database.DataSource;
@@ -21,6 +22,7 @@ import com.example.database.DatabaseHelper;
 
 public class MainActivity extends FragmentActivity {
 	private DataSource datasource;
+	private long currentActivtyId;
 	static List<Activity> values;
 
 	public static HashMap<String, List<String>> activityDetails;
@@ -53,6 +55,7 @@ public class MainActivity extends FragmentActivity {
 				// values.get(pos).getLocation(),
 				// Integer.toString(values.get(pos).getCost()),
 				// Integer.toString(values.get(pos).getTimeframe())));
+				currentActivtyId = values.get(pos).getId();
 				return FirstFragment.newInstance(values.get(pos).getActivity());
 			}
 			return FirstFragment.non();
@@ -84,7 +87,7 @@ public class MainActivity extends FragmentActivity {
 			// return
 			// FirstFragment.newInstance("@string/no_activities_to_show");
 		}
-
+		
 		@Override
 		public int getCount() {
 			if (values.size() == 0) {
@@ -93,6 +96,7 @@ public class MainActivity extends FragmentActivity {
 			return values.size();
 		}
 	}
+	
 
 	public static List<Activity> getValues() {
 		return values;
@@ -126,7 +130,7 @@ public class MainActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will

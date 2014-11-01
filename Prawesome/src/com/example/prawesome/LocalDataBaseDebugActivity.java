@@ -129,7 +129,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			List<State> states = datasource.getAllStates();
 			datasource.close();
 			
-			String allStatesString = "All suggestions:";
+			String allStatesString = "All ignore elements:";
 			for (State state: states) {
 				allStatesString += "\n" + state;
 			}				

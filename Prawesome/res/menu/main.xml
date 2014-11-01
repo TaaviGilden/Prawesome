@@ -28,5 +28,4 @@
         android:orderInCategory="110"
         android:title="@string/local_db_string"
         app:showAsAction="never"/>
-
 </menu>

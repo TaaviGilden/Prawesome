@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 public class FirstFragment extends Fragment {
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_first_fragment, container, false);

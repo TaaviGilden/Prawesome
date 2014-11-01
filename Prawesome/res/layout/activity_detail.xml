@@ -115,4 +115,23 @@
         android:text="min"
         android:textColor="@color/logoBlue" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="notNow"
+        android:text="@string/not_now" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_toRightOf="@+id/name"
+        android:onClick="never"
+        android:text="@string/never_again" />
+
 </RelativeLayout>

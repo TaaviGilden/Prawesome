@@ -1886,12 +1886,14 @@ containing a value of this type.
         public static final int create_activity=0x7f0a0013;
         public static final int db_string=0x7f0a001b;
         public static final int local_db_string=0x7f0a001c;
-        public static final int no_activities_to_show=0x7f0a001e;
+        public static final int never_again=0x7f0a001e;
+        public static final int no_activities_to_show=0x7f0a0020;
+        public static final int not_now=0x7f0a001d;
         public static final int title_activity_create=0x7f0a0012;
         public static final int title_activity_data_base_debug=0x7f0a001a;
         public static final int title_activity_detail=0x7f0a0019;
         public static final int title_activity_first_fragment=0x7f0a0014;
-        public static final int title_activity_local_data_base_debug_activity=0x7f0a001d;
+        public static final int title_activity_local_data_base_debug_activity=0x7f0a001f;
         public static final int title_activity_second_fragment=0x7f0a0015;
         public static final int title_activity_splash=0x7f0a0017;
         public static final int title_activity_third_fragment=0x7f0a0016;

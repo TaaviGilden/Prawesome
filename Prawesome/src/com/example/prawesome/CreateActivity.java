@@ -27,7 +27,7 @@ public class CreateActivity extends ActionBarActivity {
 	public void submitActivity(View view) {
 		datasource = new DataSource(this);
 		datasource.open();
-		EditText name = (EditText) findViewById(R.id.editText1);
+		EditText name = (EditText) findViewById(R.id.non_to_show_message);
 		EditText desc = (EditText) findViewById(R.id.Description);
 		EditText loc = (EditText) findViewById(R.id.Location);
 		EditText cost = (EditText) findViewById(R.id.Cost);

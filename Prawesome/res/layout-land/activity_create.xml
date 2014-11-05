@@ -36,9 +36,9 @@
         android:id="@+id/Description"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignLeft="@+id/non_to_show_message"
         android:layout_alignRight="@+id/button2"
-        android:layout_below="@+id/editText1"
+        android:layout_below="@+id/non_to_show_message"
         android:background="@drawable/rounded_corner"
         android:ems="10"
         android:hint="Description"
@@ -67,7 +67,7 @@
         android:src="@android:drawable/ic_menu_search" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/non_to_show_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -81,8 +81,8 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText1"
-        android:layout_alignTop="@+id/editText1"
+        android:layout_alignBottom="@+id/non_to_show_message"
+        android:layout_alignTop="@+id/non_to_show_message"
         android:layout_marginLeft="30dp"
         android:layout_toRightOf="@+id/imageView1"
         android:background="@drawable/rounded_corner"

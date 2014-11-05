@@ -2,15 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark" >
+    android:background="@color/backgroundGrey" >
 
     <TextView
-        android:id="@+id/tvFragSecond"
+        android:id="@+id/non_to_show_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="152dp"
         android:textSize="26dp"
-        android:text="TextView" />
+        android:textColor="@color/logoBlue"
+        android:text="@string/no_activities_to_show" >
+
+        <requestFocus />
+    </TextView>
 
 </RelativeLayout>

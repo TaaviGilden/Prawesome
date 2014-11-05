@@ -40,15 +40,4 @@ public class FirstFragment extends Fragment {
 
         return f;
     }
-    
-    public static FirstFragment non() {
-
-        FirstFragment f = new FirstFragment();
-        Bundle b = new Bundle();
-        b.putString("msg", "No activities to show");
-
-        f.setArguments(b);
-
-        return f;
-    }
 }

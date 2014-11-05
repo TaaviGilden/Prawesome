@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
@@ -33,11 +34,12 @@ public class MainActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		data = SplashActivity.getData();
-
+		//data = SplashActivity.getData();
+		/*
 		for (ActivityData i : data) {
 			Log.d("fetch", i.name);
 		}
+		*/
 
 		datasource = new DataSource(this);
 		datasource.open();
@@ -50,7 +52,7 @@ public class MainActivity extends FragmentActivity {
 		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 	}
 
-	private class MyPagerAdapter extends FragmentPagerAdapter {
+	private class MyPagerAdapter extends FragmentStatePagerAdapter {
 
 		public MyPagerAdapter(FragmentManager fm) {
 			super(fm);
@@ -59,42 +61,11 @@ public class MainActivity extends FragmentActivity {
 		@Override
 		public Fragment getItem(int pos) {
 			while (values.size() > 0 && pos <= values.size()) {
-				// activityDetails.put(values.get(pos).getActivity(),
-				// Arrays.asList(values.get(pos).getDescription(),
-				// values.get(pos).getLocation(),
-				// Integer.toString(values.get(pos).getCost()),
-				// Integer.toString(values.get(pos).getTimeframe())));
 				currentActivtyId = values.get(pos).getId();
 				return FirstFragment.newInstance(values.get(pos).getActivity());
 			}
-			return FirstFragment.non();
-			// switch(pos) {
-			//
-			// // case 0: return
-			// FirstFragment.newInstance(values.get(0).toString());
-			// // case 1: return
-			// SecondFragment.newInstance(values.get(1).toString());
-			// // case 2: return
-			// ThirdFragment.newInstance("ThirdFragment, Instance 1");
-			// // case 3: return
-			// ThirdFragment.newInstance("ThirdFragment, Instance 2");
-			// // case 4: return
-			// ThirdFragment.newInstance("ThirdFragment, Instance 3");
-			// // case 5: return
-			// FirstFragment.newInstance(values.get(2).toString());
-			// case 0:
-			// while(i<=values.size()){
-			// i++;
-			// return ThirdFragment.newInstance(values.get(i).toString());
-			// }
-			//
-			// default: return
-			// ThirdFragment.newInstance("ThirdFragment, Default");
-			//
-			// }
-
-			// return
-			// FirstFragment.newInstance("@string/no_activities_to_show");
+			return SecondFragment.newInstance();
+			
 		}
 
 		@Override

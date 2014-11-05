@@ -35,12 +35,14 @@ public class MainActivity extends FragmentActivity {
 
 		data = SplashActivity.getData();
 
-		for (ActivityData i : data) {
-			Log.d("fetch", i.name);
-		}
+
 
 		datasource = new DataSource(this);
 		datasource.open();
+		
+		for (ActivityData i : data) {
+			datasource.createActivityTo(DatabaseHelper.TABLE_ACTIVITIES,i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime, i.timelimitstart, i.timelimitend);
+			}
 
 		// values =
 		// datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);
@@ -65,7 +67,7 @@ public class MainActivity extends FragmentActivity {
 				// Integer.toString(values.get(pos).getCost()),
 				// Integer.toString(values.get(pos).getTimeframe())));
 				currentActivtyId = values.get(pos).getId();
-				return FirstFragment.newInstance(values.get(pos).getActivity());
+				return FirstFragment.newInstance(values.get(pos).getName());
 			}
 			return FirstFragment.non();
 			// switch(pos) {

@@ -15,9 +15,9 @@ public class DataSource {
 	private SQLiteDatabase database;
 	private DatabaseHelper dbHelper;
 	private String[] allActivityColumns = { DatabaseHelper.COLUMN_ID,
-			DatabaseHelper.COLUMN_ACTIVITY, DatabaseHelper.COLUMN_DESCRIPTION,
+			DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_DESCRIPTION,
 			DatabaseHelper.COLUMN_LOCATION, DatabaseHelper.COLUMN_COST,
-			DatabaseHelper.COLUMN_TIMEFRAME };
+			DatabaseHelper.COLUMN_ESTTIME, DatabaseHelper.COLUMN_TIMELIMITSTART, DatabaseHelper.COLUMN_TIMELIMITEND };
 	
 	private String[] allStateColumns = {DatabaseHelper.COLUMN_ID, 
 			DatabaseHelper.COLUMN_ACTIVITY_ID,
@@ -42,14 +42,16 @@ public class DataSource {
 		dbHelper.close();
 	}
 
-	public void createActivityTo(String table,String activity, String description,
-			String location, int cost, int timeframe) {
+	public void createActivityTo(String table,String name, String description,
+			String location, int cost, String esttime, String timelimitstart, String timelimitend) {
 		ContentValues values = new ContentValues();
-		values.put(DatabaseHelper.COLUMN_ACTIVITY, activity);
+		values.put(DatabaseHelper.COLUMN_NAME, name);
 		values.put(DatabaseHelper.COLUMN_DESCRIPTION, description);
 		values.put(DatabaseHelper.COLUMN_LOCATION, location);
 		values.put(DatabaseHelper.COLUMN_COST, cost);
-		values.put(DatabaseHelper.COLUMN_TIMEFRAME, timeframe);
+		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
+		values.put(DatabaseHelper.COLUMN_TIMELIMITSTART, timelimitstart);
+		values.put(DatabaseHelper.COLUMN_TIMELIMITEND, timelimitend);
 		database.insert(table, null,
 				values);
 	}
@@ -77,7 +79,7 @@ public class DataSource {
 	public boolean verification(String activity) {
 		Cursor c = database.rawQuery("SELECT 1 FROM "
 				+ DatabaseHelper.TABLE_SUGGESTIONS + " WHERE "
-				+ DatabaseHelper.COLUMN_ACTIVITY + "=?",
+				+ DatabaseHelper.COLUMN_NAME + "=?",
 				new String[] { activity });
 		boolean exists = c.moveToFirst();
 		c.close();
@@ -149,8 +151,8 @@ public class DataSource {
 
 		cursor.moveToFirst();
 		activity = cursorToActivity(cursor);
-		createActivityTo(DatabaseHelper.TABLE_ACTIVITIES,activity.getActivity(), activity.getDescription(), activity.getLocation(),
-				activity.getCost(), activity.getTimeframe());
+		createActivityTo(DatabaseHelper.TABLE_ACTIVITIES,activity.getName(), activity.getDescription(), activity.getLocation(),
+				activity.getCost(), activity.getEsttime(), activity.getTimelimitstart(), activity.getTimelimitend());
 		deleteSuggestion(activity.getId());
 	}
 	
@@ -178,11 +180,13 @@ public class DataSource {
 	private Activity cursorToActivity(Cursor cursor) {
 		Activity activity = new Activity();
 		activity.setId(cursor.getLong(0));
-		activity.setActivity(cursor.getString(1));
+		activity.setName(cursor.getString(1));
 		activity.setDescription(cursor.getString(2));
 		activity.setLocation(cursor.getString(3));
 		activity.setCost(cursor.getInt(4));
-		activity.setTimeframe(cursor.getInt(5));
+		activity.setEsttime(cursor.getString(5));
+		activity.setTimelimitstart(cursor.getString(6));
+		activity.setTimelimitend(cursor.getString(7));
 		return activity;
 	}
 	

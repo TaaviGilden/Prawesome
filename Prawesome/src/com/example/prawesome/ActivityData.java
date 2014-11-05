@@ -23,5 +23,8 @@ public class ActivityData {
 
 	@SerializedName("description")
 	public String description;
+	
+	@SerializedName("cost")
+	public String cost;
 
 }

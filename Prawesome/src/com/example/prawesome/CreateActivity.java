@@ -52,7 +52,7 @@ public class CreateActivity extends ActionBarActivity {
 		} else if (!(datasource.verification(activityName))) {
 			datasource.createActivityTo(DatabaseHelper.TABLE_SUGGESTIONS,activityName, activityDesc, activityLoc,
 					Integer.parseInt(activityCost),
-					Integer.parseInt(activityTime));
+					activityTime,"","");
 
 			Context context = getApplicationContext();
 			CharSequence text = "Activity created!";

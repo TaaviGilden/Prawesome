@@ -2,14 +2,40 @@ package com.example.database;
 
 public class Activity {
 	  private long id;
-	  private String activity;
+	  private String name;
 	  private String description;
 	  private String location;
 	  private int cost;
-	  private int timeframe;
+	  private String esttime;
+	  private String timelimitstart;
+	  private String timelimitend;
 
 	  public String getDescription() {
 		return description;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setEsttime(String esttime) {
+		this.esttime = esttime;
+	}
+
+	public String getTimelimitstart() {
+		return timelimitstart;
+	}
+
+	public void setTimelimitstart(String timelimitstart) {
+		this.timelimitstart = timelimitstart;
+	}
+
+	public String getTimelimitend() {
+		return timelimitend;
+	}
+
+	public void setTimelimitend(String timelimitend) {
+		this.timelimitend = timelimitend;
 	}
 
 	public void setDescription(String description) {
@@ -32,13 +58,10 @@ public class Activity {
 		this.cost = cost;
 	}
 
-	public int getTimeframe() {
-		return timeframe;
+	public String getEsttime() {
+		return esttime;
 	}
 
-	public void setTimeframe(int timeframe) {
-		this.timeframe = timeframe;
-	}
 
 	public long getId() {
 	    return id;
@@ -48,17 +71,15 @@ public class Activity {
 	    this.id = id;
 	  }
 
-	  public String getActivity() {
-	    return activity;
+	  public String getName() {
+	    return name;
 	  }
 
-	  public void setActivity(String activity) {
-	    this.activity = activity;
-	  }
+
 
 	  // Will be used by the ArrayAdapter in the ListView
 	  @Override
 	  public String toString() {
-	    return activity;
+	    return name;
 	  }
 	} 

@@ -32,16 +32,17 @@ public class DetailActivity extends Activity {
 		TextView time = (TextView) findViewById(R.id.time);
 
 		for(int i = 0;i<values.size();i++){
-			if(activityName.equals(values.get(i).getActivity().toString())){
+			if(activityName.equals(values.get(i).getName().toString())){
 				index = i;
 				break;
 			}
 		}
-		name.setText(values.get(index).getActivity().toString());
+		name.setText(values.get(index).getName().toString());
 		desc.setText(values.get(index).getDescription().toString());
 		loc.setText(values.get(index).getLocation().toString());
 		cost.setText(Integer.toString(values.get(index).getCost()));
-		time.setText(Integer.toString(values.get(index).getTimeframe()));
+//		time.setText(Integer.toString(values.get(index).getEsttime()));
+		time.setText(values.get(index).getEsttime());
 	}
 	
 	public void notNow(View v){

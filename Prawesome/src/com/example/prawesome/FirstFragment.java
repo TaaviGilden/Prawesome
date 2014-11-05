@@ -3,14 +3,13 @@ package com.example.prawesome;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class FirstFragment extends Fragment {
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +35,17 @@ public class FirstFragment extends Fragment {
         FirstFragment f = new FirstFragment();
         Bundle b = new Bundle();
         b.putString("msg", text);
+
+        f.setArguments(b);
+
+        return f;
+    }
+    
+    public static FirstFragment non() {
+
+        FirstFragment f = new FirstFragment();
+        Bundle b = new Bundle();
+        b.putString("msg", "No activities to show");
 
         f.setArguments(b);
 

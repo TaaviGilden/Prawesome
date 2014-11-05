@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Prawesome</string>
-    <string name="hello_world">Hello world!</string>
     <string name="add_activity">Add a new activity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_create">CreateActivity</string>
@@ -16,6 +15,9 @@
     <string name="title_activity_data_base_debug">DataBaseDebugActivity</string>
     <string name="db_string">DataBaseDebug</string>
     <string name="local_db_string">LocalDataBaseDebug</string>
+    <string name="not_now">Not now</string>
+    <string name="never_again">Never again</string>
     <string name="title_activity_local_data_base_debug_activity">LocalDataBaseDebugActivity</string>
-
+	<string name="no_activities_to_show">No activities to show</string>
+    
 </resources>

@@ -64,7 +64,7 @@ public class MainActivity extends FragmentActivity {
 				currentActivtyId = values.get(pos).getId();
 				return FirstFragment.newInstance(values.get(pos).getActivity());
 			}
-			return SecondFragment.newInstance();
+			return NoActivitiesFragment.newInstance();
 			
 		}
 

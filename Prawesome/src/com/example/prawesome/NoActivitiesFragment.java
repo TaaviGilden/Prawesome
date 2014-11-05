@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class SecondFragment extends Fragment {
+public class NoActivitiesFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-	    View v = inflater.inflate(R.layout.activity_second_fragment, container, false);
+	    View v = inflater.inflate(R.layout.no_activity_fragment, container, false);
 	    return v;
 	}
 	
-	public static SecondFragment newInstance() {
-	    SecondFragment f = new SecondFragment();
+	public static NoActivitiesFragment newInstance() {
+	    NoActivitiesFragment f = new NoActivitiesFragment();
 	    Bundle b = new Bundle();
 	    f.setArguments(b);
 	

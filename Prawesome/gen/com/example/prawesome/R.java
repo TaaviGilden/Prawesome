@@ -1807,21 +1807,18 @@ containing a value of this type.
         public static final int activity_first_fragment=0x7f030019;
         public static final int activity_local_data_base_debug_activity=0x7f03001a;
         public static final int activity_main=0x7f03001b;
-        public static final int activity_second_fragment=0x7f03001c;
-        public static final int activity_splash=0x7f03001d;
-        public static final int activity_third_fragment=0x7f03001e;
+        public static final int activity_splash=0x7f03001c;
+        public static final int activity_third_fragment=0x7f03001d;
+        public static final int no_activity_fragment=0x7f03001e;
         public static final int support_simple_spinner_dropdown_item=0x7f03001f;
     }
     public static final class menu {
         public static final int create=0x7f0c0000;
         public static final int data_base_debug=0x7f0c0001;
         public static final int detail=0x7f0c0002;
-        public static final int first=0x7f0c0003;
-        public static final int local_data_base_debug_activity=0x7f0c0004;
-        public static final int main=0x7f0c0005;
-        public static final int second=0x7f0c0006;
-        public static final int splash=0x7f0c0007;
-        public static final int third=0x7f0c0008;
+        public static final int local_data_base_debug_activity=0x7f0c0003;
+        public static final int main=0x7f0c0004;
+        public static final int splash=0x7f0c0005;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 

@@ -94,11 +94,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		if (id == R.id.action_settings) {
 			return true;
 		}
-		else if (id == R.id.action_db) {
-			Intent create = new Intent(this, DataBaseDebugActivity.class);
-			startActivity(create);
-			return true;
-		}
+		
 		return super.onOptionsItemSelected(item);
 	}
 }

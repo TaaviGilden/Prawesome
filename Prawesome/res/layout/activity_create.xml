@@ -32,9 +32,11 @@
         android:layout_toLeftOf="@+id/button1"
         android:background="@drawable/rounded_corner"
         android:ems="10"
+        android:hint="Title"
         android:imeOptions="actionNext"
-        android:singleLine="true"
-        android:hint="Title" />
+        android:singleLine="true" >
+                <requestFocus />
+    </EditText>
 
     <Button
         android:id="@+id/button1"
@@ -57,10 +59,9 @@
         android:ems="10"
         android:hint="Description"
         android:imeOptions="actionNext"
-        android:singleLine="true" >
+        android:singleLine="true" />
 
-        <requestFocus />
-    </EditText>
+
 
     <Button
         android:id="@+id/button2"

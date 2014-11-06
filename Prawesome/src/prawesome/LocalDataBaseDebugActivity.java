@@ -100,7 +100,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			datasource.close();
 			String allActivitiesString = "All activities:";
 			for (Activity activity : allActivities) {
-				allActivitiesString += "\n" + activity.toString();
+				allActivitiesString += "\n" + activity.getId() + ":\t" + activity.toString();
 			}
 			Toast.makeText(this, allActivitiesString,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
@@ -116,7 +116,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			datasource.close();
 			String allActivitiesString = "All suggestions:";
 			for (Activity activity : allActivities) {
-				allActivitiesString += "\n" + activity.toString();
+				allActivitiesString += "\n" + activity.getId() + ":\t" + activity.toString();
 			}
 				
 			Toast.makeText(this, allActivitiesString,Toast.LENGTH_LONG).show();

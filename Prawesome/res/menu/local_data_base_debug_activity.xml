@@ -7,11 +7,5 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_db"
-        android:orderInCategory="110"
-        android:title="@string/db_string"
-        app:showAsAction="never"/>
-
+        android:showAsAction="never"/>
 </menu>

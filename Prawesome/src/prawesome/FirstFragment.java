@@ -12,8 +12,34 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class FirstFragment extends Fragment {
+	private Boolean ignored = false;
 
-    @Override
+    public Boolean getIgnored() {
+		return ignored;
+	}
+
+
+	public void setIgnored(Boolean ignored) {
+		this.ignored = ignored;
+	}
+
+	@Override 
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {     
+	  super.onActivityResult(requestCode, resultCode, data); 
+	  switch(requestCode) { 
+	    case (1) : { 
+	      if (resultCode == 1) { 
+	    	  ignored = true;
+	    	  Log.d("ignore","pressed not now or never");
+	      } else{
+	    	  Log.d("ignore","left other way");
+	      }    	  
+	      break; 
+	    } 
+	  } 
+	}
+
+	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_first_fragment, container, false);
 
@@ -25,7 +51,7 @@ public class FirstFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtra("Name", tv.getText().toString());
-                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
         return v;

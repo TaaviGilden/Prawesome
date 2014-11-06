@@ -54,6 +54,11 @@ public class DetailActivity extends Activity {
 			datasource.open();
 			datasource.addIgnore(values.get(index).getId(), false);
 			datasource.close();
+			
+			Intent returnIntent = new Intent();
+			setResult(1,returnIntent);			
+			finish();
+			
 			Toast.makeText(this, "not now" ,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
@@ -66,6 +71,11 @@ public class DetailActivity extends Activity {
 			datasource.open();
 			datasource.addIgnore(values.get(index).getId(), true);
 			datasource.close();
+			
+			Intent returnIntent = new Intent();
+			setResult(1,returnIntent);			
+			finish();
+			
 			Toast.makeText(this, "never" ,Toast.LENGTH_LONG).show();
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
@@ -89,4 +99,5 @@ public class DetailActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
 }

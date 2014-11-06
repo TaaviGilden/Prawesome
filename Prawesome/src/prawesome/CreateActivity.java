@@ -52,7 +52,7 @@ public class CreateActivity extends ActionBarActivity {
 			return;
 
 		} else if (!(datasource.verification(activityName))) {
-			datasource.createActivityTo(DatabaseHelper.TABLE_SUGGESTIONS,activityName, activityDesc, activityLoc,
+			datasource.createSuggestion(activityName, activityDesc, activityLoc,
 					Integer.parseInt(activityCost),
 					activityTime,"","");
 

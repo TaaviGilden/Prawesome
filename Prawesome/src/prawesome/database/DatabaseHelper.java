@@ -24,12 +24,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	  private static final String DATABASE_NAME = "activities.db";
 	  
 	  //IF YOU CHANGE SOMETHING IN DATABASE, UPDATE VERSION
-	  private static final int DATABASE_VERSION = 8;
+	  private static final int DATABASE_VERSION = 10;
 
 	  // Database creation sql statement
 	  private static final String CREATE_TABLE_ACTIVITIES = "create table "
 			  + TABLE_ACTIVITIES + "(" 
-			  + COLUMN_ID + " integer primary key autoincrement, " 
+			  + COLUMN_ID + " integer, " 
 			  + COLUMN_NAME + " text not null, "
 			  + COLUMN_DESCRIPTION + " text not null, " 
 			  + COLUMN_LOCATION + " text not null, "

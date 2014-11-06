@@ -41,8 +41,22 @@ public class DataSource {
 	public void close() {
 		dbHelper.close();
 	}
+	
+	public void createActivity(long id,String name, String description,
+			String location, int cost, String esttime, String timelimitstart, String timelimitend){
+		ContentValues values = new ContentValues();
+		values.put(DatabaseHelper.COLUMN_ID, id);
+		values.put(DatabaseHelper.COLUMN_NAME, name);
+		values.put(DatabaseHelper.COLUMN_DESCRIPTION, description);
+		values.put(DatabaseHelper.COLUMN_LOCATION, location);
+		values.put(DatabaseHelper.COLUMN_COST, cost);
+		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
+		values.put(DatabaseHelper.COLUMN_TIMELIMITSTART, timelimitstart);
+		values.put(DatabaseHelper.COLUMN_TIMELIMITEND, timelimitend);
+		database.insert(DatabaseHelper.TABLE_ACTIVITIES, null,values);
+	}
 
-	public void createActivityTo(String table,String name, String description,
+	public void createSuggestion(String name, String description,
 			String location, int cost, String esttime, String timelimitstart, String timelimitend) {
 		ContentValues values = new ContentValues();
 		values.put(DatabaseHelper.COLUMN_NAME, name);
@@ -52,7 +66,7 @@ public class DataSource {
 		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
 		values.put(DatabaseHelper.COLUMN_TIMELIMITSTART, timelimitstart);
 		values.put(DatabaseHelper.COLUMN_TIMELIMITEND, timelimitend);
-		database.insert(table, null,
+		database.insert(DatabaseHelper.TABLE_SUGGESTIONS, null,
 				values);
 	}
 
@@ -151,7 +165,9 @@ public class DataSource {
 
 		cursor.moveToFirst();
 		activity = cursorToActivity(cursor);
-		createActivityTo(DatabaseHelper.TABLE_ACTIVITIES,activity.getName(), activity.getDescription(), activity.getLocation(),
+		
+		// THIS IS ONLY USED FOR DEBUG SO ID = -1 IS OKEY
+		createActivity(-1,activity.getName(), activity.getDescription(), activity.getLocation(),
 				activity.getCost(), activity.getEsttime(), activity.getTimelimitstart(), activity.getTimelimitend());
 		deleteSuggestion(activity.getId());
 	}

@@ -33,6 +33,10 @@
             android:label="@string/title_activity_second_fragment" >
         </activity>
         <activity
+            android:name=".ThirdFragment"
+            android:label="@string/title_activity_third_fragment" >
+        </activity>
+        <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >

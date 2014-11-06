@@ -22,8 +22,8 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-		//ActivityFetcher fetcher = new ActivityFetcher();
-		//fetcher.execute();
+		ActivityFetcher fetcher = new ActivityFetcher();
+		fetcher.execute();
 
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {

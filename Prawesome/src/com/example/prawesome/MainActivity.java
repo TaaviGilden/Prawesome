@@ -34,17 +34,9 @@ public class MainActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
-		data = SplashActivity.getData();
-=======
-		//data = SplashActivity.getData();
-		/*
-		for (ActivityData i : data) {
-			Log.d("fetch", i.name);
-		}
-		*/
 
->>>>>>> c21215121a55526c84d1fe0d1dff69dae011d8ad
+		data = SplashActivity.getData();
+
 		datasource = new DataSource(this);
 		datasource.open();
 		

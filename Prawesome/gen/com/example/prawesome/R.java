@@ -1089,10 +1089,11 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int ic_launcher=0x7f020057;
-        public static final int logo=0x7f020058;
-        public static final int rounded_corner=0x7f020059;
-        public static final int rounded_corners2=0x7f02005a;
+        public static final int background=0x7f020057;
+        public static final int ic_launcher=0x7f020058;
+        public static final int logo=0x7f020059;
+        public static final int rounded_corner=0x7f02005a;
+        public static final int rounded_corners2=0x7f02005b;
     }
     public static final class id {
         public static final int Cost=0x7f050044;

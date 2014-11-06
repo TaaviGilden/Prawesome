@@ -240,10 +240,11 @@ int drawable abc_textfield_searchview_holo_dark 0x7f020053
 int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
-int drawable ic_launcher 0x7f020057
-int drawable logo 0x7f020058
-int drawable rounded_corner 0x7f020059
-int drawable rounded_corners2 0x7f02005a
+int drawable background 0x7f020057
+int drawable ic_launcher 0x7f020058
+int drawable logo 0x7f020059
+int drawable rounded_corner 0x7f02005a
+int drawable rounded_corners2 0x7f02005b
 int id Cost 0x7f050044
 int id Description 0x7f05003f
 int id Location 0x7f050041

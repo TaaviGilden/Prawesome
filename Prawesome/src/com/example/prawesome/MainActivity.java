@@ -34,12 +34,10 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 
 		data = SplashActivity.getData();
-
-
-
 		datasource = new DataSource(this);
 		datasource.open();
 		
+		//Adding activities from external to local database
 		for (ActivityData i : data) {
 			datasource.createActivityTo(DatabaseHelper.TABLE_ACTIVITIES,i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime, i.timelimitstart, i.timelimitend);
 			}

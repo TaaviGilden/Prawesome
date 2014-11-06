@@ -29,7 +29,7 @@
             android:label="@string/title_activity_first_fragment" >
         </activity>
         <activity
-            android:name=".SecondFragment"
+            android:name=".NoActivitiesFragment"
             android:label="@string/title_activity_second_fragment" >
         </activity>
         <activity

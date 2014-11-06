@@ -1,0 +1,2 @@
+include ':Prawesome'
+include ':appcompat_v7'

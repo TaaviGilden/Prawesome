@@ -20,20 +20,22 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-		ActivityFetcher fetcher = new ActivityFetcher();
-		try {
-			data = fetcher.execute().get();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+
 
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
 			public void run() {
+				try {
+					ActivityFetcher fetcher = new ActivityFetcher();
+					data = fetcher.execute().get();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ExecutionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				finish();
 				Intent openMainActivity = new Intent(SplashActivity.this,
 						MainActivity.class);

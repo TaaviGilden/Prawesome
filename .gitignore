@@ -4,7 +4,6 @@
 Prawesome/bin/
 tmp/
 *.tmp
-*.jar
 *.bak
 *.swp
 *~.nib

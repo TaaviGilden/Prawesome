@@ -1,4 +1,4 @@
-package com.example.prawesome.util;
+package prawesome.util;
 
 import android.app.Activity;
 import android.os.Build;

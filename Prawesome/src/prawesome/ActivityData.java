@@ -1,4 +1,4 @@
-package com.example.prawesome;
+package prawesome;
 
 import com.google.gson.annotations.SerializedName;
 

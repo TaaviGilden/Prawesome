@@ -1,4 +1,6 @@
-package com.example.prawesome;
+package prawesome;
+
+import com.example.prawesome.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

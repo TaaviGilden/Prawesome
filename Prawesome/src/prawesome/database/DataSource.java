@@ -1,4 +1,4 @@
-package com.example.database;
+package prawesome.database;
 
 import java.util.ArrayList;
 import java.util.List;

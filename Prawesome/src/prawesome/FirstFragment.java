@@ -1,4 +1,6 @@
-package com.example.prawesome;
+package prawesome;
+
+import com.example.prawesome.R;
 
 import android.content.Intent;
 import android.os.Bundle;

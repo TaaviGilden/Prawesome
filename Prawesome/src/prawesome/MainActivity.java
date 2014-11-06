@@ -1,7 +1,13 @@
-package com.example.prawesome;
+package prawesome;
 
 import java.util.HashMap;
 import java.util.List;
+
+import com.example.prawesome.R;
+
+import prawesome.database.Activity;
+import prawesome.database.DataSource;
+import prawesome.database.DatabaseHelper;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +23,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.database.Activity;
-import com.example.database.DataSource;
-import com.example.database.DatabaseHelper;
 
 public class MainActivity extends FragmentActivity {
 	private DataSource datasource;

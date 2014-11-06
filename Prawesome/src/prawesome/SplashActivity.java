@@ -1,9 +1,10 @@
-package com.example.prawesome;
+package prawesome;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+import com.example.prawesome.R;
 import com.google.gson.Gson;
 
 import android.app.Activity;

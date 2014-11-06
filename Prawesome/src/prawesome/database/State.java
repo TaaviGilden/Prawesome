@@ -1,4 +1,4 @@
-package com.example.database;
+package prawesome.database;
 
 public class State {
 	private long id;

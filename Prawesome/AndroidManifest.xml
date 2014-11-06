@@ -17,27 +17,27 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="prawesome.MainActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".CreateActivity"
+            android:name="prawesome.CreateActivity"
             android:label="@string/title_activity_create" >
         </activity>
         <activity
-            android:name=".FirstFragment"
+            android:name="prawesome.FirstFragment"
             android:label="@string/title_activity_first_fragment" >
         </activity>
         <activity
-            android:name=".NoActivitiesFragment"
+            android:name="prawesome.NoActivitiesFragment"
             android:label="@string/title_activity_second_fragment" >
         </activity>
         <activity
-            android:name=".ThirdFragment"
+            android:name="prawesome.ThirdFragment"
             android:label="@string/title_activity_third_fragment" >
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name="prawesome.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
@@ -47,11 +47,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailActivity"
+            android:name="prawesome.DetailActivity"
             android:label="@string/title_activity_detail" >
         </activity>
         <activity
-            android:name=".LocalDataBaseDebugActivity"
+            android:name="prawesome.LocalDataBaseDebugActivity"
             android:label="@string/title_activity_local_data_base_debug_activity" >
         </activity>
     </application>

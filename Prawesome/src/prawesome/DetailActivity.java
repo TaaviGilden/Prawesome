@@ -1,6 +1,10 @@
-package com.example.prawesome;
+package prawesome;
 
 import java.util.List;
+
+import com.example.prawesome.R;
+
+import prawesome.database.DataSource;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,10 +15,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.database.DataSource;
 
 public class DetailActivity extends Activity {
-	List<com.example.database.Activity> values;
+	List<prawesome.database.Activity> values;
 	int index;
 
 	@Override

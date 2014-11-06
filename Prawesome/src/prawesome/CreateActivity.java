@@ -1,5 +1,9 @@
-package com.example.prawesome;
+package prawesome;
 
+import com.example.prawesome.R;
+
+import prawesome.database.DataSource;
+import prawesome.database.DatabaseHelper;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -12,8 +16,6 @@ import android.view.View.OnKeyListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.database.DataSource;
-import com.example.database.DatabaseHelper;
 
 public class CreateActivity extends ActionBarActivity {
 	private DataSource datasource;

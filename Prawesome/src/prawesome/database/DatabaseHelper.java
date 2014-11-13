@@ -9,6 +9,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	
 	  public static final String TABLE_ACTIVITIES = "activities";
 	  public static final String TABLE_SUGGESTIONS = "suggestions";
+	  public static final String TABLE_OFFLINE = "offline";
 	  public static final String TABLE_IGNORE = "ignore";
 	  public static final String COLUMN_ID = "_id";
 	  public static final String COLUMN_NAME = "activity";
@@ -24,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	  private static final String DATABASE_NAME = "activities.db";
 	  
 	  //IF YOU CHANGE SOMETHING IN DATABASE, UPDATE VERSION
-	  private static final int DATABASE_VERSION = 10;
+	  private static final int DATABASE_VERSION = 11;
 
 	  // Database creation sql statement
 	  private static final String CREATE_TABLE_ACTIVITIES = "create table "
@@ -49,6 +50,17 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 			  + COLUMN_TIMELIMITSTART + " text not null, "
 			  + COLUMN_TIMELIMITEND + " text not null);"; 
 	  
+	  private static final String CREATE_TABLE_OFFLINE = "create table "
+		      + TABLE_OFFLINE + "(" 
+		      + COLUMN_ID + " integer, " 
+		      + COLUMN_NAME + " text not null, "
+			  + COLUMN_DESCRIPTION + " text not null, " 
+			  + COLUMN_LOCATION + " text not null, "
+			  + COLUMN_COST + " integer not null, "
+			  + COLUMN_ESTTIME + " text not null, "
+			  + COLUMN_TIMELIMITSTART + " text not null, "
+			  + COLUMN_TIMELIMITEND + " text not null);";
+	  
 	  private static final String CREATE_TABLE_IGNORE = "create table "
 			  + TABLE_IGNORE + "("
 			  + COLUMN_ID + " integer primary key autoincrement, "
@@ -65,6 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	    database.execSQL(CREATE_TABLE_ACTIVITIES);
 	    database.execSQL(CREATE_TABLE_SUGGESTIONS);
 	    database.execSQL(CREATE_TABLE_IGNORE);
+	    database.execSQL(CREATE_TABLE_OFFLINE);
 	  }
 
 	  @Override
@@ -75,6 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_ACTIVITIES);
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_SUGGESTIONS);
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_IGNORE);
+	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_OFFLINE);	    
 	    onCreate(db);
 	  }
 

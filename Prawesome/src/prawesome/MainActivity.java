@@ -48,9 +48,11 @@ public class MainActivity extends FragmentActivity {
 		datasource.open();
 		datasource.deleteAllFrom(DatabaseHelper.TABLE_ACTIVITIES);
 		//Adding activities from external to local database
-		for (ActivityData i : data) {
-			datasource.createActivity(Long.parseLong(i.id), i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime, i.timelimitstart, i.timelimitend);
-			}
+		if(data.length > 0){
+			for (ActivityData i : data) {
+				datasource.createActivity(Long.parseLong(i.id), i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime, i.timelimitstart, i.timelimitend);
+				}
+		}
 
 		// values =
 		// datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);

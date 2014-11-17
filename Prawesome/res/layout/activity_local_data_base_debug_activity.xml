@@ -145,5 +145,36 @@
             android:layout_below="@+id/button10"
             android:onClick="list_ldb_ignore_elements"
             android:text="list" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button9"
+            android:layout_alignRight="@+id/button8"
+            android:text="Local"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/button12"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/textView4"
+            android:layout_alignTop="@+id/button9"
+            android:onClick="count_ldb_offline"
+            android:text="Count" />
+
+        <Button
+            android:id="@+id/button13"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button10"
+            android:layout_alignBottom="@+id/button10"
+            android:layout_alignRight="@+id/button12"
+             android:onClick="first_offline_to_activities"
+            android:text="move 1 to active" />
+        
         
 </RelativeLayout>

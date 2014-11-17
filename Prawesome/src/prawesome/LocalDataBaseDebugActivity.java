@@ -179,6 +179,18 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		}	
 	}
 	
+	public void count_ldb_offline(View v) {
+		try {
+  			datasource = new DataSource(this);
+			datasource.open();
+			int i = datasource.elementsCount(DatabaseHelper.TABLE_OFFLINE);
+			datasource.close();
+			Toast.makeText(this, "Elements count: " + i,Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}	
+	}
+	
 	public void first_suggestion_to_activities(View v){
 		try {
 			//TODO
@@ -187,6 +199,18 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			datasource.suggestion_to_activity();
 			datasource.close();
 			Toast.makeText(this, "1st suggestion moved to activities",Toast.LENGTH_LONG).show();			
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	public void first_offline_to_activities(View v){
+		try {
+			datasource = new DataSource(this);
+			datasource.open();
+			datasource.suggestion_to_activity();
+			datasource.close();
+			Toast.makeText(this, "1st offline moved to activities",Toast.LENGTH_LONG).show();			
 		} catch (Exception e) {
 			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
 		}

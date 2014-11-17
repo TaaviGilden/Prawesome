@@ -55,6 +55,20 @@ public class DataSource {
 		values.put(DatabaseHelper.COLUMN_TIMELIMITEND, timelimitend);
 		database.insert(DatabaseHelper.TABLE_ACTIVITIES, null,values);
 	}
+	
+	public void createActivityOffline(long id,String name, String description,
+			String location, int cost, String esttime, String timelimitstart, String timelimitend){
+		ContentValues values = new ContentValues();
+		values.put(DatabaseHelper.COLUMN_ID, id);
+		values.put(DatabaseHelper.COLUMN_NAME, name);
+		values.put(DatabaseHelper.COLUMN_DESCRIPTION, description);
+		values.put(DatabaseHelper.COLUMN_LOCATION, location);
+		values.put(DatabaseHelper.COLUMN_COST, cost);
+		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
+		values.put(DatabaseHelper.COLUMN_TIMELIMITSTART, timelimitstart);
+		values.put(DatabaseHelper.COLUMN_TIMELIMITEND, timelimitend);
+		database.insert(DatabaseHelper.TABLE_OFFLINE, null,values);
+	}
 
 	public void createSuggestion(String name, String description,
 			String location, int cost, String esttime, String timelimitstart, String timelimitend) {
@@ -89,6 +103,12 @@ public class DataSource {
 		database.delete(DatabaseHelper.TABLE_SUGGESTIONS,
 				DatabaseHelper.COLUMN_ID + " = " + id, null);
 	}
+	
+	public void deleteOffline(long id){
+		database.delete(DatabaseHelper.TABLE_OFFLINE,
+				DatabaseHelper.COLUMN_ID + " = " + id, null);
+	}
+	
 
 	public boolean verification(String activity) {
 		Cursor c = database.rawQuery("SELECT 1 FROM "
@@ -170,6 +190,19 @@ public class DataSource {
 		createActivity(-1,activity.getName(), activity.getDescription(), activity.getLocation(),
 				activity.getCost(), activity.getEsttime(), activity.getTimelimitstart(), activity.getTimelimitend());
 		deleteSuggestion(activity.getId());
+	}
+	
+	public void offline_to_activity(){
+		Activity activity = null;
+		Cursor cursor = database.query(DatabaseHelper.TABLE_OFFLINE,
+				allActivityColumns, null, null, null, null, null);
+
+		cursor.moveToFirst();
+		activity = cursorToActivity(cursor);
+		
+		createActivity(activity.getId(),activity.getName(), activity.getDescription(), activity.getLocation(),
+				activity.getCost(), activity.getEsttime(), activity.getTimelimitstart(), activity.getTimelimitend());
+		deleteOffline(activity.getId());
 	}
 	
 	public void addIgnore(long id,boolean never){

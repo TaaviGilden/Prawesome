@@ -50,7 +50,7 @@ public class MainActivity extends FragmentActivity {
 		//Adding activities from external to local database
 		if(data.length > 0){
 			for (ActivityData i : data) {
-				datasource.createActivity(Long.parseLong(i.id), i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime, i.timelimitstart, i.timelimitend);
+				datasource.createActivity(Long.parseLong(i.id), i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime);
 				}
 		}
 

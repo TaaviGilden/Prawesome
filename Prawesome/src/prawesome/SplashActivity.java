@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -29,6 +30,9 @@ public class SplashActivity extends Activity {
 				try {
 					ActivityFetcher fetcher = new ActivityFetcher();
 					data = fetcher.execute().get();
+					for(ActivityData i : data){
+						Log.d("splash",i.name);
+					}
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

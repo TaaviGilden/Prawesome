@@ -54,7 +54,7 @@ public class CreateActivity extends ActionBarActivity {
 		} else if (!(datasource.verification(activityName))) {
 			datasource.createSuggestion(activityName, activityDesc, activityLoc,
 					Integer.parseInt(activityCost),
-					activityTime,"","");
+					activityTime);
 
 			Context context = getApplicationContext();
 			CharSequence text = "Activity created!";

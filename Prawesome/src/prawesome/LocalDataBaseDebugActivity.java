@@ -30,7 +30,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			String[] activities = new String[] {"do_that","do_this","do_whatever"};
 			for(int i = 0;i<3;i++){
 				if(!(datasource.verification(activities[i]))){
-					datasource.createActivity(Long.valueOf(-i),activities[i],"description", "location", 15, "20", "", "");
+					datasource.createActivity(Long.valueOf(-i),activities[i],"description", "location", 15, "20");
 				}
 			}			
 			datasource.close();
@@ -46,7 +46,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			datasource.deleteAllFrom(DatabaseHelper.TABLE_SUGGESTIONS);
 			String[] activities = new String[] {"suggestion_1","suggestion_2","suggestion_2"};
 			for(int i = 0;i<3;i++){
-				datasource.createSuggestion(activities[i],"description", "location", 15, "20", "","");
+				datasource.createSuggestion(activities[i],"description", "location", 15, "20");
 			}			
 			datasource.close();
 			Toast.makeText(this, "Table restored to hardcode" ,Toast.LENGTH_LONG).show();

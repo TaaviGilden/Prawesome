@@ -17,7 +17,7 @@ public class DataSource {
 	private String[] allActivityColumns = { DatabaseHelper.COLUMN_ID,
 			DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_DESCRIPTION,
 			DatabaseHelper.COLUMN_LOCATION, DatabaseHelper.COLUMN_COST,
-			DatabaseHelper.COLUMN_ESTTIME, DatabaseHelper.COLUMN_TIMELIMITSTART, DatabaseHelper.COLUMN_TIMELIMITEND };
+			DatabaseHelper.COLUMN_ESTTIME};
 	
 	private String[] allStateColumns = {DatabaseHelper.COLUMN_ID, 
 			DatabaseHelper.COLUMN_ACTIVITY_ID,
@@ -43,7 +43,7 @@ public class DataSource {
 	}
 	
 	public void createActivity(long id,String name, String description,
-			String location, int cost, String esttime, String timelimitstart, String timelimitend){
+			String location, int cost, String esttime){
 		ContentValues values = new ContentValues();
 		values.put(DatabaseHelper.COLUMN_ID, id);
 		values.put(DatabaseHelper.COLUMN_NAME, name);
@@ -51,21 +51,17 @@ public class DataSource {
 		values.put(DatabaseHelper.COLUMN_LOCATION, location);
 		values.put(DatabaseHelper.COLUMN_COST, cost);
 		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
-		values.put(DatabaseHelper.COLUMN_TIMELIMITSTART, timelimitstart);
-		values.put(DatabaseHelper.COLUMN_TIMELIMITEND, timelimitend);
 		database.insert(DatabaseHelper.TABLE_ACTIVITIES, null,values);
 	}
 
 	public void createSuggestion(String name, String description,
-			String location, int cost, String esttime, String timelimitstart, String timelimitend) {
+			String location, int cost, String esttime) {
 		ContentValues values = new ContentValues();
 		values.put(DatabaseHelper.COLUMN_NAME, name);
 		values.put(DatabaseHelper.COLUMN_DESCRIPTION, description);
 		values.put(DatabaseHelper.COLUMN_LOCATION, location);
 		values.put(DatabaseHelper.COLUMN_COST, cost);
 		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
-		values.put(DatabaseHelper.COLUMN_TIMELIMITSTART, timelimitstart);
-		values.put(DatabaseHelper.COLUMN_TIMELIMITEND, timelimitend);
 		database.insert(DatabaseHelper.TABLE_SUGGESTIONS, null,
 				values);
 	}
@@ -168,7 +164,7 @@ public class DataSource {
 		
 		// THIS IS ONLY USED FOR DEBUG SO ID = -1 IS OKEY
 		createActivity(-1,activity.getName(), activity.getDescription(), activity.getLocation(),
-				activity.getCost(), activity.getEsttime(), activity.getTimelimitstart(), activity.getTimelimitend());
+				activity.getCost(), activity.getEsttime());
 		deleteSuggestion(activity.getId());
 	}
 	
@@ -201,8 +197,6 @@ public class DataSource {
 		activity.setLocation(cursor.getString(3));
 		activity.setCost(cursor.getInt(4));
 		activity.setEsttime(cursor.getString(5));
-		activity.setTimelimitstart(cursor.getString(6));
-		activity.setTimelimitend(cursor.getString(7));
 		return activity;
 	}
 	

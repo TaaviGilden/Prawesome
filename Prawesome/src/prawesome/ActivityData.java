@@ -9,11 +9,11 @@ public class ActivityData {
 	@SerializedName("name")
 	public String name;
 
-	@SerializedName("timelimitstart")
-	public String timelimitstart;
-
-	@SerializedName("timelimitend")
-	public String timelimitend;
+//	@SerializedName("timelimitstart")
+//	public String timelimitstart;
+//
+//	@SerializedName("timelimitend")
+//	public String timelimitend;
 
 	@SerializedName("esttime")
 	public String esttime;

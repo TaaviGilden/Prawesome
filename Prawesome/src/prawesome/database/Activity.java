@@ -7,8 +7,8 @@ public class Activity {
 	  private String location;
 	  private int cost;
 	  private String esttime;
-	  private String timelimitstart;
-	  private String timelimitend;
+//	  private String timelimitstart;
+//	  private String timelimitend;
 
 	  public String getDescription() {
 		return description;
@@ -22,21 +22,21 @@ public class Activity {
 		this.esttime = esttime;
 	}
 
-	public String getTimelimitstart() {
-		return timelimitstart;
-	}
+//	public String getTimelimitstart() {
+//		return timelimitstart;
+//	}
+//
+//	public void setTimelimitstart(String timelimitstart) {
+//		this.timelimitstart = timelimitstart;
+//	}
 
-	public void setTimelimitstart(String timelimitstart) {
-		this.timelimitstart = timelimitstart;
-	}
-
-	public String getTimelimitend() {
-		return timelimitend;
-	}
-
-	public void setTimelimitend(String timelimitend) {
-		this.timelimitend = timelimitend;
-	}
+//	public String getTimelimitend() {
+//		return timelimitend;
+//	}
+//
+//	public void setTimelimitend(String timelimitend) {
+//		this.timelimitend = timelimitend;
+//	}
 
 	public void setDescription(String description) {
 		this.description = description;

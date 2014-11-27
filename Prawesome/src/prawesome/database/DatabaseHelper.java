@@ -17,8 +17,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	  public static final String COLUMN_LOCATION = "location";
 	  public static final String COLUMN_COST = "cost";
 	  public static final String COLUMN_ESTTIME = "esttime";
-	  public static final String COLUMN_TIMELIMITSTART = "start";
-	  public static final String COLUMN_TIMELIMITEND = "end";
+//	  public static final String COLUMN_TIMELIMITSTART = "start";
+//	  public static final String COLUMN_TIMELIMITEND = "end";
 	  public static final String COLUMN_ACTIVITY_ID = "activity_id";
 	  public static final String COLUMN_ACTIVITY_STATUS = "status";
 
@@ -35,9 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 			  + COLUMN_DESCRIPTION + " text not null, " 
 			  + COLUMN_LOCATION + " text not null, "
 			  + COLUMN_COST + " integer not null, "
-			  + COLUMN_ESTTIME + " text not null, "
-			  + COLUMN_TIMELIMITSTART + " text not null, "
-			  + COLUMN_TIMELIMITEND + " text not null);"; 
+			  + COLUMN_ESTTIME + " text not null); "; 
 	  
 	  private static final String CREATE_TABLE_SUGGESTIONS = "create table "
 		      + TABLE_SUGGESTIONS + "(" 
@@ -46,9 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 			  + COLUMN_DESCRIPTION + " text not null, " 
 			  + COLUMN_LOCATION + " text not null, "
 			  + COLUMN_COST + " integer not null, "
-			  + COLUMN_ESTTIME + " text not null, "
-			  + COLUMN_TIMELIMITSTART + " text not null, "
-			  + COLUMN_TIMELIMITEND + " text not null);"; 
+			  + COLUMN_ESTTIME + " text not null); "; 
 	  
 	  private static final String CREATE_TABLE_OFFLINE = "create table "
 		      + TABLE_OFFLINE + "(" 

@@ -6,6 +6,7 @@ import java.util.List;
 import com.prawesome.R;
 
 import prawesome.database.Activity;
+import prawesome.database.ActivityOfflineFetcher;
 import prawesome.database.DataSource;
 import prawesome.database.DatabaseHelper;
 
@@ -53,6 +54,8 @@ public class MainActivity extends FragmentActivity {
 				datasource.createActivity(Long.parseLong(i.id), i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime);
 				}
 		}
+		
+		new ActivityOfflineFetcher(datasource).execute();
 
 		// values =
 		// datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);

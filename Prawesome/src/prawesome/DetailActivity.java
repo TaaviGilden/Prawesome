@@ -2,7 +2,7 @@ package prawesome;
 
 import java.util.List;
 
-import com.example.prawesome.R;
+import com.prawesome.R;
 
 import prawesome.database.DataSource;
 

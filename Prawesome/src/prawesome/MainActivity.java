@@ -3,7 +3,7 @@ package prawesome;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.prawesome.R;
+import com.prawesome.R;
 
 import prawesome.database.Activity;
 import prawesome.database.DataSource;

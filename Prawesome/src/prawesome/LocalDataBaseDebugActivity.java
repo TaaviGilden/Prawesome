@@ -30,7 +30,7 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 			String[] activities = new String[] {"do_that","do_this","do_whatever"};
 			for(int i = 0;i<3;i++){
 				if(!(datasource.verification(activities[i]))){
-					datasource.createActivity(Long.valueOf(-i),activities[i],"description", "location", 15, "20");
+					datasource.createActivity(Long.valueOf(-i),activities[i],"description", "location",0,"");
 				}
 			}			
 			datasource.close();

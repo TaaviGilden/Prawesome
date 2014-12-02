@@ -55,7 +55,7 @@ public class DataSource {
 	}
 	
 	public void createActivityOffline(long id,String name, String description,
-			String location, int cost, String esttime, String timelimitstart, String timelimitend){
+			String location, int cost, String esttime){
 		ContentValues values = new ContentValues();
 		values.put(DatabaseHelper.COLUMN_ID, id);
 		values.put(DatabaseHelper.COLUMN_NAME, name);
@@ -63,8 +63,6 @@ public class DataSource {
 		values.put(DatabaseHelper.COLUMN_LOCATION, location);
 		values.put(DatabaseHelper.COLUMN_COST, cost);
 		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
-		values.put(DatabaseHelper.COLUMN_TIMELIMITSTART, timelimitstart);
-		values.put(DatabaseHelper.COLUMN_TIMELIMITEND, timelimitend);
 		database.insert(DatabaseHelper.TABLE_OFFLINE, null,values);
 	}
 
@@ -197,7 +195,7 @@ public class DataSource {
 		activity = cursorToActivity(cursor);
 		
 		createActivity(activity.getId(),activity.getName(), activity.getDescription(), activity.getLocation(),
-				activity.getCost(), activity.getEsttime(), activity.getTimelimitstart(), activity.getTimelimitend());
+				activity.getCost(), activity.getEsttime());
 		deleteOffline(activity.getId());
 	}
 	

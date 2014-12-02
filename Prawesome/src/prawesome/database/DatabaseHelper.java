@@ -25,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	  private static final String DATABASE_NAME = "activities.db";
 	  
 	  //IF YOU CHANGE SOMETHING IN DATABASE, UPDATE VERSION
-	  private static final int DATABASE_VERSION = 11;
+	  private static final int DATABASE_VERSION = 13;
 
 	  // Database creation sql statement
 	  private static final String CREATE_TABLE_ACTIVITIES = "create table "
@@ -53,9 +53,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 			  + COLUMN_DESCRIPTION + " text not null, " 
 			  + COLUMN_LOCATION + " text not null, "
 			  + COLUMN_COST + " integer not null, "
-			  + COLUMN_ESTTIME + " text not null, "
-			  + COLUMN_TIMELIMITSTART + " text not null, "
-			  + COLUMN_TIMELIMITEND + " text not null);";
+			  + COLUMN_ESTTIME + " text not null"
+			  + ");";
 	  
 	  private static final String CREATE_TABLE_IGNORE = "create table "
 			  + TABLE_IGNORE + "("

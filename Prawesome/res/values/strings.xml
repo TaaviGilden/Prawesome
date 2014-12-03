@@ -21,5 +21,7 @@
 	<string name="no_activities_to_show">No activities to show</string>
 	<string name="no_connection">No connection to internet</string>
 	<string name="open_internet_settings">Open internet settings</string>
+	<string name="open_internet_wifi_settings">Open WiFi settings</string>
+	<string name="open_internet_mobile_networks_settings">Open moblie netwoks settings</string>
     
 </resources>

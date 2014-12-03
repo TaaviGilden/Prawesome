@@ -36,13 +36,12 @@ public class MainActivity extends FragmentActivity {
 	public static HashMap<String, List<String>> activityDetails;
 
 	
-	public void open_internet_settings(View v) {
-		/*
-		Intent intent= new Intent();
-		   ComponentName cName = new ComponentName("com.android.phone","com.android.phone.NetworkSetting");
-		   intent.setComponent(cName); 
-		   */
+	public void open_internet_wifi_settings(View v) {
 		startActivityForResult(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
+	}
+	
+	public void open_internet_roaming_settings(View v) {
+		startActivityForResult(new Intent(android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS), 0);
 	}
 	
 	@Override

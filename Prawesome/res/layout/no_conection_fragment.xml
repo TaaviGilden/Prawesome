@@ -24,7 +24,17 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:onClick="open_internet_settings"
-        android:text="@string/open_internet_settings" />
+        android:onClick="open_internet_wifi_settings"
+        android:text="@string/open_internet_wifi_settings" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:onClick="open_internet_roaming_settings"
+        android:text="@string/open_internet_mobile_networks_settings" />
 
 </RelativeLayout>

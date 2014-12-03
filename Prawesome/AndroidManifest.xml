@@ -34,7 +34,7 @@
             android:label="@string/title_activity_second_fragment" >
         </activity>
         <activity
-            android:name="prawesome.ThirdFragment"
+            android:name="prawesome.NoConectionFragment"
             android:label="@string/title_activity_third_fragment" >
         </activity>
         <activity

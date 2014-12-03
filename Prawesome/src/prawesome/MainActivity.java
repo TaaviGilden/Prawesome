@@ -11,6 +11,7 @@ import prawesome.database.CheckNetClass;
 import prawesome.database.DataSource;
 import prawesome.database.DatabaseHelper;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -34,6 +35,16 @@ public class MainActivity extends FragmentActivity {
 
 	public static HashMap<String, List<String>> activityDetails;
 
+	
+	public void open_internet_settings(View v) {
+		/*
+		Intent intent= new Intent();
+		   ComponentName cName = new ComponentName("com.android.phone","com.android.phone.NetworkSetting");
+		   intent.setComponent(cName); 
+		   */
+		startActivityForResult(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -77,6 +88,9 @@ public class MainActivity extends FragmentActivity {
 			while (values.size() > 0 && pos <= values.size()) {
 				currentActivtyId = values.get(pos).getId();
 				return FirstFragment.newInstance(values.get(pos).getName());
+			}
+			if (!CheckNetClass.checknetwork(getApplicationContext())){
+				return NoConectionFragment.newInstance();
 			}
 			return NoActivitiesFragment.newInstance();
 			

@@ -21,7 +21,6 @@ public class NoActivitiesFragment extends Fragment {
 	    NoActivitiesFragment f = new NoActivitiesFragment();
 	    Bundle b = new Bundle();
 	    f.setArguments(b);
-	
 	    return f;
 	}
 }

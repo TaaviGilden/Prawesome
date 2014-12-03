@@ -24,5 +24,6 @@
 	<string name="open_internet_wifi_settings">Open WiFi settings</string>
 	<string name="open_internet_mobile_networks_settings">Open moblie netwoks settings</string>
 	<string name="restart">Reload</string>
+	<string name="remove_not_now">Show not now activities</string>
     
 </resources>

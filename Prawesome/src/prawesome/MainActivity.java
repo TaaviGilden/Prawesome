@@ -54,6 +54,13 @@ public class MainActivity extends FragmentActivity {
 		startActivity(slpash);
 	}
 	
+	public void remove_not_now(View v){
+		datasource.deleteNotNow();
+		finish();
+		Intent main = new Intent(this, MainActivity.class);
+		startActivity(main);		
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

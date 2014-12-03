@@ -18,4 +18,13 @@
         <requestFocus />
     </TextView>
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="remove_not_now"
+        android:text="@string/remove_not_now" />
+
 </RelativeLayout>

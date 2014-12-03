@@ -3,6 +3,7 @@ package prawesome;
 import java.util.HashMap;
 import java.util.List;
 
+import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.Adapter;
 import com.prawesome.R;
 
 import prawesome.database.Activity;
@@ -32,6 +33,9 @@ public class MainActivity extends FragmentActivity {
 	private long currentActivtyId;
 	static List<Activity> values;
 	private ActivityData[] data;
+	private ViewPager pager;
+	private MyPagerAdapter adapter;
+	
 
 	public static HashMap<String, List<String>> activityDetails;
 
@@ -42,6 +46,12 @@ public class MainActivity extends FragmentActivity {
 	
 	public void open_internet_roaming_settings(View v) {
 		startActivityForResult(new Intent(android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS), 0);
+	}
+	
+	public void restart(View v) {
+		finish();
+		Intent slpash = new Intent(this, SplashActivity.class);
+		startActivity(slpash);
 	}
 	
 	@Override
@@ -72,8 +82,9 @@ public class MainActivity extends FragmentActivity {
 		// datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);
 		values = datasource.getAllActivitiesNotIgnored();
 		Log.d("info", Integer.toString(values.size()));
-		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
-		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+		adapter = new MyPagerAdapter(getSupportFragmentManager());
+		pager = (ViewPager) findViewById(R.id.viewPager);
+		pager.setAdapter(adapter);
 	}
 
 	private class MyPagerAdapter extends FragmentStatePagerAdapter {

@@ -23,5 +23,6 @@
 	<string name="open_internet_settings">Open internet settings</string>
 	<string name="open_internet_wifi_settings">Open WiFi settings</string>
 	<string name="open_internet_mobile_networks_settings">Open moblie netwoks settings</string>
+	<string name="restart">Reload</string>
     
 </resources>

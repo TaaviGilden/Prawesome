@@ -3,42 +3,53 @@ package prawesome;
 import java.util.concurrent.ExecutionException;
 
 import prawesome.database.ActivityFetcher;
+import prawesome.database.CheckNetClass;
+import prawesome.database.DataSource;
+import prawesome.database.DatabaseHelper;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Checkable;
 
 import com.prawesome.R;
 
 public class SplashActivity extends Activity {
 
 	private static ActivityData[] data;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 		
-
-
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
 			public void run() {
-				try {
-					ActivityFetcher fetcher = new ActivityFetcher();
-					data = fetcher.execute().get();
-					for(ActivityData i : data){
-						Log.d("splash",i.name);
+				if (CheckNetClass.checknetwork(getApplicationContext())){
+					try {
+						ActivityFetcher fetcher = new ActivityFetcher();
+						data = fetcher.execute().get();
+						if (data != null){
+							for(ActivityData i : data){
+								Log.d("splash",i.name);
+							}
+						}					
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ExecutionException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ExecutionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				} else{
+					data = null;					
 				}
 				finish();
 				Intent openMainActivity = new Intent(SplashActivity.this,

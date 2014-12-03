@@ -8,28 +8,26 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class DataSource {
 
 	// Database fields
-	private SQLiteDatabase database;
+	private static SQLiteDatabase database;
 	private DatabaseHelper dbHelper;
-	private String[] allActivityColumns = { DatabaseHelper.COLUMN_ID,
+	private static String[] allActivityColumns = { DatabaseHelper.COLUMN_ID,
 			DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_DESCRIPTION,
 			DatabaseHelper.COLUMN_LOCATION, DatabaseHelper.COLUMN_COST,
-			DatabaseHelper.COLUMN_ESTTIME};
-	
-	private String[] allStateColumns = {DatabaseHelper.COLUMN_ID, 
+			DatabaseHelper.COLUMN_ESTTIME };
+
+	private String[] allStateColumns = { DatabaseHelper.COLUMN_ID,
 			DatabaseHelper.COLUMN_ACTIVITY_ID,
-			DatabaseHelper.COLUMN_ACTIVITY_STATUS};
-	
-	private String notInIgnore = DatabaseHelper.COLUMN_ID 
-			+ " not in "
-			+ "("
-			+ "SELECT " + DatabaseHelper.COLUMN_ACTIVITY_ID + " FROM " 
-			+ DatabaseHelper.TABLE_IGNORE
-			+ ")";
-	
+			DatabaseHelper.COLUMN_ACTIVITY_STATUS };
+
+	private String notInIgnore = DatabaseHelper.COLUMN_ID + " not in " + "("
+			+ "SELECT " + DatabaseHelper.COLUMN_ACTIVITY_ID + " FROM "
+			+ DatabaseHelper.TABLE_IGNORE + ")";
+
 	public DataSource(Context context) {
 		dbHelper = new DatabaseHelper(context);
 	}
@@ -41,9 +39,9 @@ public class DataSource {
 	public void close() {
 		dbHelper.close();
 	}
-	
-	public void createActivity(long id,String name, String description,
-			String location, int cost, String esttime){
+
+	public static void createActivity(long id, String name, String description,
+			String location, int cost, String esttime) {
 		ContentValues values = new ContentValues();
 		values.put(DatabaseHelper.COLUMN_ID, id);
 		values.put(DatabaseHelper.COLUMN_NAME, name);
@@ -51,11 +49,13 @@ public class DataSource {
 		values.put(DatabaseHelper.COLUMN_LOCATION, location);
 		values.put(DatabaseHelper.COLUMN_COST, cost);
 		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
-		database.insert(DatabaseHelper.TABLE_ACTIVITIES, null,values);
+		if (!alreadyExiests(DatabaseHelper.TABLE_ACTIVITIES, id)) {
+			database.insert(DatabaseHelper.TABLE_ACTIVITIES, null, values);
+		}
 	}
-	
-	public void createActivityOffline(long id,String name, String description,
-			String location, int cost, String esttime){
+
+	public void createActivityOffline(long id, String name, String description,
+			String location, int cost, String esttime) {
 		ContentValues values = new ContentValues();
 		values.put(DatabaseHelper.COLUMN_ID, id);
 		values.put(DatabaseHelper.COLUMN_NAME, name);
@@ -63,7 +63,10 @@ public class DataSource {
 		values.put(DatabaseHelper.COLUMN_LOCATION, location);
 		values.put(DatabaseHelper.COLUMN_COST, cost);
 		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
-		database.insert(DatabaseHelper.TABLE_OFFLINE, null,values);
+		if (!alreadyExiests(DatabaseHelper.TABLE_OFFLINE, id)) {
+			database.insert(DatabaseHelper.TABLE_OFFLINE, null, values);
+		}
+
 	}
 
 	public void createSuggestion(String name, String description,
@@ -74,11 +77,10 @@ public class DataSource {
 		values.put(DatabaseHelper.COLUMN_LOCATION, location);
 		values.put(DatabaseHelper.COLUMN_COST, cost);
 		values.put(DatabaseHelper.COLUMN_ESTTIME, esttime);
-		database.insert(DatabaseHelper.TABLE_SUGGESTIONS, null,
-				values);
+		database.insert(DatabaseHelper.TABLE_SUGGESTIONS, null, values);
 	}
 
-	public int elementsCount(String table) {
+	public static int elementsCount(String table) {
 		String countQuery = "SELECT  * FROM " + table;
 		Cursor cursor = database.rawQuery(countQuery, null);
 		int count = cursor.getCount();
@@ -92,23 +94,42 @@ public class DataSource {
 		database.delete(DatabaseHelper.TABLE_ACTIVITIES,
 				DatabaseHelper.COLUMN_ID + " = " + id, null);
 	}
-	
-	public void deleteSuggestion(long id){
+
+	public void deleteSuggestion(long id) {
 		database.delete(DatabaseHelper.TABLE_SUGGESTIONS,
 				DatabaseHelper.COLUMN_ID + " = " + id, null);
 	}
-	
-	public void deleteOffline(long id){
-		database.delete(DatabaseHelper.TABLE_OFFLINE,
-				DatabaseHelper.COLUMN_ID + " = " + id, null);
+
+	public static void deleteOffline(long id) {
+		database.delete(DatabaseHelper.TABLE_OFFLINE, DatabaseHelper.COLUMN_ID
+				+ " = " + id, null);
+	}
+
+	public static boolean alreadyExiests(String TableName, long id) {
+		String Query = "Select * from " + TableName + " where "
+				+ DatabaseHelper.COLUMN_ID + " = " + id;
+		Cursor cursor = database.rawQuery(Query, null);
+		if (cursor.getCount() <= 0) {
+			return false;
+		}
+		return true;
 	}
 	
+	private boolean alreadyExiests(String TableName, long id,
+			String column) {
+		String Query = "Select * from " + TableName + " where "
+				+ column + " = " + id;
+		Cursor cursor = database.rawQuery(Query, null);
+		if (cursor.getCount() <= 0) {
+			return false;
+		}
+		return true;
+	}
 
 	public boolean verification(String activity) {
 		Cursor c = database.rawQuery("SELECT 1 FROM "
 				+ DatabaseHelper.TABLE_SUGGESTIONS + " WHERE "
-				+ DatabaseHelper.COLUMN_NAME + "=?",
-				new String[] { activity });
+				+ DatabaseHelper.COLUMN_NAME + "=?", new String[] { activity });
 		boolean exists = c.moveToFirst();
 		c.close();
 		return exists;
@@ -117,13 +138,13 @@ public class DataSource {
 	public void deleteAllFrom(String table) {
 		database.delete(table, null, null);
 	}
-	
+
 	public List<Activity> getAllActivitiesFrom(String table) {
 		List<Activity> activities = new ArrayList<Activity>();
-		
-		Cursor cursor = database.query(table,
-				allActivityColumns, null, null, null, null, null);
-		
+
+		Cursor cursor = database.query(table, allActivityColumns, null, null,
+				null, null, null);
+
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Activity activity = cursorToActivity(cursor);
@@ -132,16 +153,16 @@ public class DataSource {
 		}
 		// make sure to close the cursor
 		cursor.close();
-		
-		return activities;		
+
+		return activities;
 	}
-	
+
 	public List<Activity> getAllActivitiesNotIgnored() {
 		List<Activity> activities = new ArrayList<Activity>();
-		
+
 		Cursor cursor = database.query(DatabaseHelper.TABLE_ACTIVITIES,
 				allActivityColumns, notInIgnore, null, null, null, null);
-		
+
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Activity activity = cursorToActivity(cursor);
@@ -150,16 +171,16 @@ public class DataSource {
 		}
 		// make sure to close the cursor
 		cursor.close();
-		
-		return activities;		
+
+		return activities;
 	}
-	
+
 	public List<State> getAllStates() {
 		List<State> states = new ArrayList<State>();
-		
+
 		Cursor cursor = database.query(DatabaseHelper.TABLE_IGNORE,
 				allStateColumns, null, null, null, null, null);
-		
+
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			State state = cursorToState(cursor);
@@ -168,59 +189,62 @@ public class DataSource {
 		}
 		// make sure to close the cursor
 		cursor.close();
-		
-		return states;		
+
+		return states;
 	}
-	
-	public void suggestion_to_activity(){
+
+	public void suggestion_to_activity() {
 		Activity activity = null;
 		Cursor cursor = database.query(DatabaseHelper.TABLE_SUGGESTIONS,
 				allActivityColumns, null, null, null, null, null);
 
 		cursor.moveToFirst();
 		activity = cursorToActivity(cursor);
-		
+
 		// THIS IS ONLY USED FOR DEBUG SO ID = -1 IS OKEY
-		createActivity(-1,activity.getName(), activity.getDescription(), activity.getLocation(),
-				activity.getCost(), activity.getEsttime());
+		createActivity(-1, activity.getName(), activity.getDescription(),
+				activity.getLocation(), activity.getCost(),
+				activity.getEsttime());
 		deleteSuggestion(activity.getId());
 	}
-	
-	public void offline_to_activity(){
+
+	public static void offline_to_activity() {
 		Activity activity = null;
 		Cursor cursor = database.query(DatabaseHelper.TABLE_OFFLINE,
 				allActivityColumns, null, null, null, null, null);
 
 		cursor.moveToFirst();
 		activity = cursorToActivity(cursor);
-		
-		createActivity(activity.getId(),activity.getName(), activity.getDescription(), activity.getLocation(),
+
+		createActivity(activity.getId(), activity.getName(),
+				activity.getDescription(), activity.getLocation(),
 				activity.getCost(), activity.getEsttime());
 		deleteOffline(activity.getId());
 	}
-	
-	public void addIgnore(long id,boolean never){
+
+	public void addIgnore(long id, boolean never) {
 		ContentValues values = new ContentValues();
-		values.put(DatabaseHelper.COLUMN_ACTIVITY_ID, id);	
+		values.put(DatabaseHelper.COLUMN_ACTIVITY_ID, id);
 		values.put(DatabaseHelper.COLUMN_ACTIVITY_STATUS, boolToInteger(never));
-		database.insert(DatabaseHelper.TABLE_IGNORE, null,
-				values);
+		if (!alreadyExiests(DatabaseHelper.TABLE_IGNORE, id, DatabaseHelper.COLUMN_ACTIVITY_ID)) {
+			database.insert(DatabaseHelper.TABLE_IGNORE, null, values);
+		}
 	}
-	
-	private int boolToInteger(Boolean b){
+
+	private int boolToInteger(Boolean b) {
 		if (b) {
 			return 1;
-		}else {
+		} else {
 			return 0;
-		}			
+		}
 	}
-	
-	public void deleteNotNow(){
+
+	public void deleteNotNow() {
 		database.delete(DatabaseHelper.TABLE_IGNORE,
 				DatabaseHelper.COLUMN_ACTIVITY_STATUS + " = " + 0, null);
 	}
-	
-	private Activity cursorToActivity(Cursor cursor) {
+
+	private static Activity cursorToActivity(Cursor cursor) {
 		Activity activity = new Activity();
 		activity.setId(cursor.getLong(0));
 		activity.setName(cursor.getString(1));
@@ -230,13 +254,13 @@ public class DataSource {
 		activity.setEsttime(cursor.getString(5));
 		return activity;
 	}
-	
-	private State cursorToState(Cursor cursor){
+
+	private State cursorToState(Cursor cursor) {
 		State state = new State();
 		state.setId(cursor.getLong(0));
 		state.setActivity_id(cursor.getLong(1));
-		state.setNever(cursor.getInt(2));		
-		return state;		
+		state.setNever(cursor.getInt(2));
+		return state;
 	}
 
 }

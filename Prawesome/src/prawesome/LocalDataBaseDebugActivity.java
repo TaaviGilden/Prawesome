@@ -91,6 +91,18 @@ public class LocalDataBaseDebugActivity extends ActionBarActivity {
 		}	
 	}
 	
+	public void clean_ldb_offline(View v) {
+		try {
+  			datasource = new DataSource(this);
+			datasource.open();
+			datasource.deleteAllFrom(DatabaseHelper.TABLE_OFFLINE);
+			datasource.close();
+			Toast.makeText(this, "Table cleaned" ,Toast.LENGTH_LONG).show();
+		} catch (Exception e) {
+			Toast.makeText(this, "Something went wrong: " + e.getMessage() ,Toast.LENGTH_LONG).show();
+		}	
+	}
+	
 	
 	public void list_ldb_activities_elements(View v) {
 		try {

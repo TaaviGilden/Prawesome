@@ -175,6 +175,14 @@
             android:layout_alignRight="@+id/button12"
              android:onClick="first_offline_to_activities"
             android:text="move 1 to active" />
-        
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/button13"
+            android:layout_below="@+id/button13"
+            android:onClick="clean_ldb_offline"
+            android:text="clean" />
         
 </RelativeLayout>

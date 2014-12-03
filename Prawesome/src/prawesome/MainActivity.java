@@ -7,6 +7,7 @@ import com.prawesome.R;
 
 import prawesome.database.Activity;
 import prawesome.database.ActivityOfflineFetcher;
+import prawesome.database.CheckNetClass;
 import prawesome.database.DataSource;
 import prawesome.database.DatabaseHelper;
 
@@ -37,25 +38,25 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
 		data = SplashActivity.getData();
-		/*
-		for (ActivityData i : data) {
-			Log.v("fetch", i.name);
-		}
-		*/
-
+		
 		datasource = new DataSource(this);
 		datasource.open();
 		datasource.deleteAllFrom(DatabaseHelper.TABLE_ACTIVITIES);
 		//Adding activities from external to local database
-		if(data.length > 0){
+		if (data == null){
+			int n = DataSource.elementsCount(DatabaseHelper.TABLE_OFFLINE);
+			for (int i = 0; i < 10 && i < n; i++) {
+				datasource.offline_to_activity();
+			}
+		}else if(data.length > 0){
 			for (ActivityData i : data) {
 				datasource.createActivity(Long.parseLong(i.id), i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime);
 				}
 		}
-		
-		new ActivityOfflineFetcher(datasource).execute();
+		if (CheckNetClass.checknetwork(getApplicationContext())) {			
+			new ActivityOfflineFetcher(datasource).execute();
+		}
 
 		// values =
 		// datasource.getAllActivitiesFrom(DatabaseHelper.TABLE_ACTIVITIES);

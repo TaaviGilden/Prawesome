@@ -5,13 +5,13 @@ import java.util.List;
 
 import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.Adapter;
 import com.prawesome.R;
+import com.prawesome.SignInActivity;
 
 import prawesome.database.Activity;
 import prawesome.database.ActivityOfflineFetcher;
 import prawesome.database.CheckNetClass;
 import prawesome.database.DataSource;
 import prawesome.database.DatabaseHelper;
-
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +27,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-
 public class MainActivity extends FragmentActivity {
 	private DataSource datasource;
 	private long currentActivtyId;
@@ -35,53 +34,55 @@ public class MainActivity extends FragmentActivity {
 	private ActivityData[] data;
 	private ViewPager pager;
 	private MyPagerAdapter adapter;
-	
 
 	public static HashMap<String, List<String>> activityDetails;
 
-	
 	public void open_internet_wifi_settings(View v) {
-		startActivityForResult(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
+		startActivityForResult(new Intent(
+				android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
 	}
-	
+
 	public void open_internet_roaming_settings(View v) {
-		startActivityForResult(new Intent(android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS), 0);
+		startActivityForResult(new Intent(
+				android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS), 0);
 	}
-	
+
 	public void restart(View v) {
 		finish();
 		Intent slpash = new Intent(this, SplashActivity.class);
 		startActivity(slpash);
 	}
-	
-	public void remove_not_now(View v){
+
+	public void remove_not_now(View v) {
 		datasource.deleteNotNow();
 		finish();
 		Intent main = new Intent(this, MainActivity.class);
-		startActivity(main);		
+		startActivity(main);
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		data = SplashActivity.getData();
-		
+
 		datasource = new DataSource(this);
 		datasource.open();
 		datasource.deleteAllFrom(DatabaseHelper.TABLE_ACTIVITIES);
-		//Adding activities from external to local database
-		if (data == null){
+		// Adding activities from external to local database
+		if (data == null) {
 			int n = DataSource.elementsCount(DatabaseHelper.TABLE_OFFLINE);
 			for (int i = 0; i < 10 && i < n; i++) {
 				datasource.offline_to_activity();
 			}
-		}else if(data.length > 0){
+		} else if (data.length > 0) {
 			for (ActivityData i : data) {
-				datasource.createActivity(Long.parseLong(i.id), i.name,i.description, i.location, Integer.parseInt(i.cost), i.esttime);
-				}
+				datasource.createActivity(Long.parseLong(i.id), i.name,
+						i.description, i.location, Integer.parseInt(i.cost),
+						i.esttime);
+			}
 		}
-		if (CheckNetClass.checknetwork(getApplicationContext())) {			
+		if (CheckNetClass.checknetwork(getApplicationContext())) {
 			new ActivityOfflineFetcher(datasource).execute();
 		}
 
@@ -106,11 +107,11 @@ public class MainActivity extends FragmentActivity {
 				currentActivtyId = values.get(pos).getId();
 				return FirstFragment.newInstance(values.get(pos).getName());
 			}
-			if (!CheckNetClass.checknetwork(getApplicationContext())){
+			if (!CheckNetClass.checknetwork(getApplicationContext())) {
 				return NoConectionFragment.newInstance();
 			}
 			return NoActivitiesFragment.newInstance();
-			
+
 		}
 
 		@Override
@@ -173,6 +174,13 @@ public class MainActivity extends FragmentActivity {
 		} else if (id == R.id.action_ldb) {
 			Intent create = new Intent(this, LocalDataBaseDebugActivity.class);
 			startActivity(create);
+			return true;
+		} else if (id == R.id.action_logout) {
+			Intent login = new Intent(this, SignInActivity.class);
+			
+				SignInActivity.mGoogleApiClient.disconnect();
+				startActivity(login);
+				finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

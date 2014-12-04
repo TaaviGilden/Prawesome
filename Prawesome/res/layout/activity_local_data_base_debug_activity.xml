@@ -11,7 +11,7 @@
     tools:context="prawesome.LocalDataBaseDebugActivity" >
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/sign_out_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -25,7 +25,7 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/button2"
+            android:layout_alignLeft="@+id/sign_out_button"
             android:layout_below="@+id/button3"
             android:background="@drawable/rounded_corner"
             android:onClick="clean_ldb_activties"
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/button3"
-            android:layout_below="@+id/button2"
+            android:layout_below="@+id/sign_out_button"
             android:background="@drawable/rounded_corner"
             android:onClick="count_ldb_activities"
             android:text="count" />
@@ -55,8 +55,8 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/button2"
-            android:layout_alignLeft="@+id/button2"
+            android:layout_alignBottom="@+id/sign_out_button"
+            android:layout_alignLeft="@+id/sign_out_button"
             android:layout_marginBottom="58dp"
             android:text="Activities"
             android:textAppearance="?android:attr/textAppearanceLarge" />

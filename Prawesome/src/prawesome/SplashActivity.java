@@ -4,19 +4,14 @@ import java.util.concurrent.ExecutionException;
 
 import prawesome.database.ActivityFetcher;
 import prawesome.database.CheckNetClass;
-import prawesome.database.DataSource;
-import prawesome.database.DatabaseHelper;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Checkable;
+import android.widget.TextView;
 
 import com.prawesome.R;
 
@@ -28,8 +23,11 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-		
+		Intent login = getIntent();
+		String personName = login.getStringExtra("personName");
 		Handler handler = new Handler();
+		TextView welcome = (TextView) (findViewById(R.id.welcomeField));
+		welcome.setText("Welcome "+personName+"!");
 		handler.postDelayed(new Runnable() {
 			public void run() {
 				if (CheckNetClass.checknetwork(getApplicationContext())){

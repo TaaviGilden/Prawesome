@@ -37,29 +37,6 @@ public class MainActivity extends FragmentActivity {
 
 	public static HashMap<String, List<String>> activityDetails;
 
-	public void open_internet_wifi_settings(View v) {
-		startActivityForResult(new Intent(
-				android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
-	}
-
-	public void open_internet_roaming_settings(View v) {
-		startActivityForResult(new Intent(
-				android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS), 0);
-	}
-
-	public void restart(View v) {
-		finish();
-		Intent slpash = new Intent(this, SplashActivity.class);
-		startActivity(slpash);
-	}
-
-	public void remove_not_now(View v) {
-		datasource.deleteNotNow();
-		finish();
-		Intent main = new Intent(this, MainActivity.class);
-		startActivity(main);
-	}
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -93,6 +70,7 @@ public class MainActivity extends FragmentActivity {
 		adapter = new MyPagerAdapter(getSupportFragmentManager());
 		pager = (ViewPager) findViewById(R.id.viewPager);
 		pager.setAdapter(adapter);
+		pager.setCurrentItem(getIntent().getIntExtra("start", 0));
 	}
 
 	private class MyPagerAdapter extends FragmentStatePagerAdapter {
@@ -185,5 +163,38 @@ public class MainActivity extends FragmentActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public long getPosByActivityId(long id){
+		for (int i = 0; i < values.size(); i++) {
+			if (id == values.get(i).getId()) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public void open_internet_wifi_settings(View v) {
+		startActivityForResult(new Intent(
+				android.provider.Settings.ACTION_WIFI_SETTINGS), 0);
+	}
+
+	public void open_internet_roaming_settings(View v) {
+		startActivityForResult(new Intent(
+				android.provider.Settings.ACTION_DATA_ROAMING_SETTINGS), 0);
+	}
+
+	public void restart(View v) {
+		finish();
+		Intent splash = new Intent(this, SplashActivity.class);
+		startActivity(splash);
+	}
+
+	public void remove_not_now(View v) {
+		datasource.deleteNotNow();
+		finish();
+		Intent main = new Intent(this, MainActivity.class);
+		startActivity(main);
+	}
+
 
 }

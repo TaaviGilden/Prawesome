@@ -188,6 +188,13 @@ public class MainActivity extends FragmentActivity {
 		Intent splash = new Intent(this, SplashActivity.class);
 		startActivity(splash);
 	}
+	
+	public void restart(int i){
+		finish();
+		Intent main = new Intent(this, MainActivity.class);
+		main.putExtra("start", i);
+		startActivity(main);
+	}
 
 	public void remove_not_now(View v) {
 		datasource.deleteNotNow();

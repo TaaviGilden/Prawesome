@@ -1,5 +1,8 @@
 package prawesome.database;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -229,6 +232,17 @@ public class DataSource {
 		if (!alreadyExiests(DatabaseHelper.TABLE_IGNORE, id, DatabaseHelper.COLUMN_ACTIVITY_ID)) {
 			database.insert(DatabaseHelper.TABLE_IGNORE, null, values);
 		}
+		//TO-DO add user id when implemented
+//		URL url;
+//		try {
+//			url = new URL("http://ec2-54-69-156-10.us-west-2.compute.amazonaws.com/disableactivity.php?userid=1&actid=" + id);
+//			url.openStream();
+//		} catch (MalformedURLException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
 	}
 
 	private int boolToInteger(Boolean b) {

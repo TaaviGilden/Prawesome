@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 
 public class ActivityFetcher extends AsyncTask<Void, Void, ActivityData[]> {
 	
-
+	//TO-DO Add ?userid= to url end
 	public static final String SERVER_URL = "http://ec2-54-69-156-10.us-west-2.compute.amazonaws.com/getactivities.php";
 
 	@Override

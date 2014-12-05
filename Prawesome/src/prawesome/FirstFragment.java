@@ -52,13 +52,12 @@ public class FirstFragment extends Fragment {
 
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(Ra.layout.activity_first_fragment, container, false);
+        View v = inflater.inflate(R.layout.activity_first_fragment, container, false);
 
         final TextView tv = (TextView) v.findViewById(R.id.tvFragFirst);
         tv.setText(getArguments().getString("msg"));
         v.setOnClickListener(new View.OnClickListener() {
 
-            @Override
             public void onClick(View v) {
             	if (!open){
             		open = true;

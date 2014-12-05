@@ -48,7 +48,6 @@ public class SignInActivity extends Activity
 
 			// Set a listener to connect the user when the G+ button is clicked.
 			but1.setOnClickListener(new OnClickListener() {
-				@Override
 				public void onClick(View view) {
 					mGoogleApiClient.connect();
 				}
@@ -69,7 +68,7 @@ public class SignInActivity extends Activity
 
 	protected void onStart() {
 		super.onStart();
-		//mGoogleApiClient.connect();
+		mGoogleApiClient.connect();
 	}
 
 	protected void onStop() {
@@ -155,7 +154,6 @@ public class SignInActivity extends Activity
 //
 //	}
 
-	@Override
 	public void onConnected(Bundle connectionHint) {
 		mSignInClicked = false;
 		String personName = null;
@@ -200,7 +198,6 @@ public class SignInActivity extends Activity
 		mGoogleApiClient.connect();
 	}
 
-	@Override
 	public void onDisconnected() {
 		// TODO Auto-generated method stub
 

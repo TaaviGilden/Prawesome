@@ -1,4 +1,4 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 dependencies {
     compile files('libs/gson-2.3.jar')
@@ -9,7 +9,7 @@ dependencies {
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.0"
+    buildToolsVersion "21.1.1"
 
     sourceSets {
         main {

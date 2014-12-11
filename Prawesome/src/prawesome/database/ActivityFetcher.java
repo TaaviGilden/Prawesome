@@ -19,13 +19,14 @@ public class ActivityFetcher extends AsyncTask<Void, Void, ActivityData[]> {
 		Gson gson = new Gson();
 
 		String fromURL = null;
+		ActivityData[] data = null;
 		try {
 			fromURL = readUrl(SERVER_URL);
+			fromURL = fromURL.replace("<meta charset=\"UTF-8\">", "");
+			data = gson.fromJson(fromURL, ActivityData[].class);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		fromURL = fromURL.replace("<meta charset=\"UTF-8\">", "");
-		ActivityData[] data = gson.fromJson(fromURL, ActivityData[].class);
+		}		
 
 		return data;
 	}

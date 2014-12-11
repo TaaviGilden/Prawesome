@@ -39,12 +39,9 @@ public class SplashActivity extends Activity {
 								Log.d("splash",i.name);
 							}
 						}					
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (ExecutionException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					} catch (Exception e) {
+						// TODO: handle exception
+						data = null;
 					}
 				} else{
 					data = null;					

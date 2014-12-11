@@ -13,7 +13,7 @@ import com.google.gson.Gson;
 
 public class ActivityOfflineFetcher extends AsyncTask<Void, Integer, String> {
 
-	public static final String SERVER_URL = "http://ec2-54-69-156-10.us-west-2.compute.amazonaws.com/getactivities.php";
+	public static final String SERVER_URL = "http://ec2-54-149-59-127.us-west-2.compute.amazonaws.com/getactivities.php";
 	public DataSource datasource;
 
 	public ActivityOfflineFetcher(DataSource datasource) {
@@ -29,13 +29,14 @@ public class ActivityOfflineFetcher extends AsyncTask<Void, Integer, String> {
 		Gson gson = new Gson();
 
 		String fromURL = null;
+		ActivityData[] data = null;
 		try {
 			fromURL = readUrl(SERVER_URL);
+			fromURL = fromURL.replace("<meta charset=\"UTF-8\">", "");
+			data = gson.fromJson(fromURL, ActivityData[].class);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		fromURL = fromURL.replace("<meta charset=\"UTF-8\">", "");
-		ActivityData[] data = gson.fromJson(fromURL, ActivityData[].class);
 				
 		datasource.open();
 		for (ActivityData i : data) {

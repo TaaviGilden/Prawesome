@@ -3,7 +3,7 @@ package prawesome;
 import com.prawesome.R;
 
 import prawesome.database.DataSource;
-import prawesome.database.DatabaseHelper;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;

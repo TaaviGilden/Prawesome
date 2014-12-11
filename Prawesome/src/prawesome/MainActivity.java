@@ -3,7 +3,6 @@ package prawesome;
 import java.util.HashMap;
 import java.util.List;
 
-import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.Adapter;
 import com.prawesome.R;
 import com.prawesome.SignInActivity;
 
@@ -12,20 +11,18 @@ import prawesome.database.ActivityOfflineFetcher;
 import prawesome.database.CheckNetClass;
 import prawesome.database.DataSource;
 import prawesome.database.DatabaseHelper;
-import android.content.ComponentName;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
 	private DataSource datasource;
@@ -83,7 +80,7 @@ public class MainActivity extends FragmentActivity {
 		public Fragment getItem(int pos) {
 			while (values.size() > 0 && pos <= values.size()) {
 				currentActivtyId = values.get(pos).getId();
-				return FirstFragment.newInstance(values.get(pos).getName());
+				return MainFragment.newInstance(values.get(pos).getName());
 			}
 			if (!CheckNetClass.checknetwork(getApplicationContext())) {
 				return NoConectionFragment.newInstance();

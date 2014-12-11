@@ -33,7 +33,7 @@
             android:label="@string/title_activity_create" >
         </activity>
         <activity
-            android:name="prawesome.FirstFragment"
+            android:name="prawesome.MainFragment"
             android:label="@string/title_activity_first_fragment" >
         </activity>
         <activity

@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class FirstFragment extends Fragment {
+public class MainFragment extends Fragment {
 	private Boolean ignored = false;
 	private Boolean open = false;
 
@@ -72,9 +72,9 @@ public class FirstFragment extends Fragment {
     }
     
 
-    public static FirstFragment newInstance(String text) {
+    public static MainFragment newInstance(String text) {
 
-        FirstFragment f = new FirstFragment();
+        MainFragment f = new MainFragment();
         Bundle b = new Bundle();
         b.putString("msg", text);
 

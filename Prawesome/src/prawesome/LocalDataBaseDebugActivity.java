@@ -9,7 +9,6 @@ import prawesome.database.DataSource;
 import prawesome.database.DatabaseHelper;
 import prawesome.database.State;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
